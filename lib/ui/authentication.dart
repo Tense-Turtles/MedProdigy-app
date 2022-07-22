@@ -31,7 +31,7 @@ class _AuthenticationState extends State<Authentication> {
                 'Login for Hospicare',
                 style: TextStyle(
                     //fontFamily: 'TrajanPro'
-                    color: Colors.grey[800],
+                    color: Color.fromARGB(255, 48, 48, 48),
                     fontWeight: FontWeight.w900,
                     fontStyle: FontStyle.normal,
                     fontFamily: 'SourceCodePro',
@@ -46,7 +46,7 @@ class _AuthenticationState extends State<Authentication> {
                 decoration: InputDecoration(
                   hintText: "something@email.com",
                   hintStyle: TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 116, 116, 116),
                   ),
                   labelText: "Email",
                   labelStyle: TextStyle(
@@ -59,17 +59,17 @@ class _AuthenticationState extends State<Authentication> {
             Container(
               width: MediaQuery.of(context).size.width / 1.3,
               child: TextFormField(
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                 controller: _passwordField,
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: "password",
                   hintStyle: TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 76, 72, 72),
                   ),
                   labelText: "Password",
                   labelStyle: TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ),
