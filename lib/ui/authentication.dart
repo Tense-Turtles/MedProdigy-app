@@ -41,7 +41,7 @@ class _AuthenticationState extends State<Authentication> {
             Container(
               width: MediaQuery.of(context).size.width / 1.3,
               child: TextFormField(
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                 controller: _emailField,
                 decoration: InputDecoration(
                   hintText: "something@email.com",
@@ -50,7 +50,7 @@ class _AuthenticationState extends State<Authentication> {
                   ),
                   labelText: "Email",
                   labelStyle: TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ),
