@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "485352211339",
+    "project_id": "hospicare-app22",
+    "storage_bucket": "hospicare-app22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485352211339:android:047f93111764caee8c658e",
+        "android_client_info": {
+          "package_name": "com.example.hospicareApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485352211339-gjsef11174i9nn2q8e84q36nisbgkogu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLVHFxa-cISjQN5KG-2NVdajSbtSSYsqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485352211339-gjsef11174i9nn2q8e84q36nisbgkogu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485352211339:android:e2ed5c416dcf89d28c658e",
+        "android_client_info": {
+          "package_name": "com.example.hospicare_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485352211339-gjsef11174i9nn2q8e84q36nisbgkogu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLVHFxa-cISjQN5KG-2NVdajSbtSSYsqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485352211339-gjsef11174i9nn2q8e84q36nisbgkogu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
