@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+*APK is built after every push, find it at the artifacts section in GitHub Actions*
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
