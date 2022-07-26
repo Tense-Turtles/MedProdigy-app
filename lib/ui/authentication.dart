@@ -1,6 +1,5 @@
 import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:flutter/material.dart';
-
 import 'home_view.dart';
 
 class Authentication extends StatefulWidget {
@@ -11,6 +10,7 @@ class Authentication extends StatefulWidget {
 }
 
 class _AuthenticationState extends State<Authentication> {
+  TextEditingController _usename = TextEditingController();
   TextEditingController _emailField = TextEditingController();
   TextEditingController _passwordField = TextEditingController();
 
@@ -36,6 +36,23 @@ class _AuthenticationState extends State<Authentication> {
                     fontStyle: FontStyle.normal,
                     fontFamily: 'SourceCodePro',
                     fontSize: 30),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width / 1.3,
+              child: TextFormField(
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                controller: _usename,
+                decoration: InputDecoration(
+                  hintText: "Enter Username",
+                  hintStyle: TextStyle(
+                    color: Color.fromARGB(255, 116, 116, 116),
+                  ),
+                  labelText: "Username",
+                  labelStyle: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                  ),
+                ),
               ),
             ),
             Container(
