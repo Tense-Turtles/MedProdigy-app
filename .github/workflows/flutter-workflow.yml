@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: "microsoft"
-          java-version: "12"
+          java-version: "16.0.2"
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.0.5"
