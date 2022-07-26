@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:path//Users/thanmaisai/Hospicare-Project/lib/ui/authentication.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key? key}) : super(key: key);

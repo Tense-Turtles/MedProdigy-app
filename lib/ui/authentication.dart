@@ -42,23 +42,6 @@ class _AuthenticationState extends State<Authentication> {
               width: MediaQuery.of(context).size.width / 1.3,
               child: TextFormField(
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-                controller: _usename,
-                decoration: InputDecoration(
-                  hintText: "Enter Username",
-                  hintStyle: TextStyle(
-                    color: Color.fromARGB(255, 116, 116, 116),
-                  ),
-                  labelText: "Username",
-                  labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width / 1.3,
-              child: TextFormField(
-                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                 controller: _emailField,
                 decoration: InputDecoration(
                   hintText: "something@email.com",
