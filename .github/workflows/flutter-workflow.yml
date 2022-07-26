@@ -28,6 +28,8 @@ jobs:
           # ninja version to download. Default: 1.10.0
           version: 1.10.0
       - run: sudo apt install libgtk-3-dev
+      
+      - run: mv assets/fonts/SourceCodePro-Black.ttf assets/fonts/SourceCodePro-black.ttf
       - run: flutter pub get
       - run: flutter doctor
       # - run: flutter format --set-exit-if-changed .
