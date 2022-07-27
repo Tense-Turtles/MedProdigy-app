@@ -1,17 +1,22 @@
+// ignore_for_file: avoid_unnecessary_containers, unnecessary_const, sized_box_for_whitespace, use_build_context_synchronously
+
 import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:flutter/material.dart';
 import 'home_view.dart';
 
 class Authentication extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
   Authentication({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _AuthenticationState createState() => _AuthenticationState();
 }
 
 class _AuthenticationState extends State<Authentication> {
-  TextEditingController _usename = TextEditingController();
+  // ignore: prefer_final_fields
   TextEditingController _emailField = TextEditingController();
+  // ignore: prefer_final_fields
   TextEditingController _passwordField = TextEditingController();
 
   @override
@@ -20,18 +25,22 @@ class _AuthenticationState extends State<Authentication> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
+        // ignore: prefer_const_constructors
         decoration: BoxDecoration(
+          // ignore: prefer_const_constructors
           color: Color.fromARGB(255, 61, 227, 230),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
+              // ignore: prefer_const_constructors
               child: Text(
                 'Login for Hospicare',
+                // ignore: prefer_const_constructors
                 style: TextStyle(
                     //fontFamily: 'TrajanPro'
-                    color: Color.fromARGB(255, 48, 48, 48),
+                    color: const Color.fromARGB(255, 48, 48, 48),
                     fontWeight: FontWeight.w900,
                     fontStyle: FontStyle.normal,
                     fontFamily: 'SourceCodePro',
@@ -41,16 +50,16 @@ class _AuthenticationState extends State<Authentication> {
             Container(
               width: MediaQuery.of(context).size.width / 1.3,
               child: TextFormField(
-                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                 controller: _emailField,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "something@email.com",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Color.fromARGB(255, 116, 116, 116),
                   ),
                   labelText: "Email",
-                  labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
+                  labelStyle: const TextStyle(
+                    color: const Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ),
@@ -59,17 +68,18 @@ class _AuthenticationState extends State<Authentication> {
             Container(
               width: MediaQuery.of(context).size.width / 1.3,
               child: TextFormField(
-                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                style:
+                    const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                 controller: _passwordField,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "password",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Color.fromARGB(255, 76, 72, 72),
                   ),
                   labelText: "Password",
                   labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: const Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ),
@@ -95,7 +105,7 @@ class _AuthenticationState extends State<Authentication> {
                     );
                   }
                 },
-                child: Text("Register"),
+                child: const Text("Register"),
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height / 35),
@@ -119,7 +129,7 @@ class _AuthenticationState extends State<Authentication> {
                       );
                     }
                   },
-                  child: Text("Login")),
+                  child: const Text("Login")),
             ),
           ],
         ),

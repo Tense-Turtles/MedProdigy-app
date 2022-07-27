@@ -1,8 +1,11 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
   HomeView({Key? key}) : super(key: key);
 
   @override
@@ -25,6 +28,7 @@ class _HomeViewState extends State<HomeView> {
               fontSize: 20),
         )),
         body: Container(
+          // ignore: prefer_const_constructors
           decoration: BoxDecoration(
             color: Colors.white,
           ),
