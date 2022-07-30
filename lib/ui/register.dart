@@ -27,20 +27,17 @@ class _RegisterState extends State<Register> {
         decoration: BoxDecoration(
             //image: DecorationImage(
             //    image: AssetImage('assets/register.png'), fit: BoxFit.cover),
-            color: Color.fromARGB(255, 101, 101, 101)),
+            color: Color.fromARGB(255, 255, 255, 255)),
         child: Scaffold(
             backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-            ),
+
 //Scrollable view for pixel error
             body: Stack(children: [
               SingleChildScrollView(
                 // mainAxisAlignment: MainAxisAlignment.center,
                 child: Container(
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.1),
+                      top: MediaQuery.of(context).size.height * 0.18),
 // heading
                   child: Column(
                     //mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +46,7 @@ class _RegisterState extends State<Register> {
                         alignment: Alignment.centerLeft,
                         padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: const Text(
-                          "REGISTER",
+                          "REGISTER\nCreate account",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Color(0xFF2661FA),

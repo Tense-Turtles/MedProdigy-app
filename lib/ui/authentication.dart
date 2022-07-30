@@ -29,7 +29,7 @@ class _AuthenticationState extends State<Authentication> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         // ignore: prefer_const_constructors
-        decoration: BoxDecoration(color: Color.fromARGB(142, 143, 143, 143)
+        decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)
             //image: DecorationImage(
             //image: AssetImage('assets/main.png'), fit: BoxFit.cover),
             // ignore: prefer_const_constructors
@@ -140,7 +140,7 @@ class _AuthenticationState extends State<Authentication> {
               height: 45,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
-                color: Color.fromARGB(142, 143, 143, 143),
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
               child: MaterialButton(
                 onPressed: () async {
