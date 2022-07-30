@@ -10,15 +10,15 @@ class Authentication extends StatefulWidget {
   Authentication({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
+  // ignore: library_private_types_in_public_api, no_logic_in_create_state
   _AuthenticationState createState() => _AuthenticationState();
 }
 
 class _AuthenticationState extends State<Authentication> {
   // ignore: prefer_final_fields
-  TextEditingController _emailField = TextEditingController();
+  TextEditingController emailField = TextEditingController();
   // ignore: prefer_final_fields
-  TextEditingController _passwordField = TextEditingController();
+  TextEditingController passwordField = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +29,9 @@ class _AuthenticationState extends State<Authentication> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         // ignore: prefer_const_constructors
-        decoration: BoxDecoration(
+        decoration: BoxDecoration(color: Color.fromARGB(142, 143, 143, 143)
             //image: DecorationImage(
-            //image: AssetImage('assets/login.png'), fit: BoxFit.cover),
+            //image: AssetImage('assets/main.png'), fit: BoxFit.cover),
             // ignore: prefer_const_constructors
             ),
         child: Column(
@@ -55,7 +55,7 @@ class _AuthenticationState extends State<Authentication> {
               padding: const EdgeInsets.only(top: 40),
               child: TextFormField(
                 style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-                controller: _emailField,
+                controller: emailField,
                 decoration: const InputDecoration(
                   hintText: "something@email.com",
                   hintStyle: const TextStyle(
@@ -74,7 +74,7 @@ class _AuthenticationState extends State<Authentication> {
               width: MediaQuery.of(context).size.width / 1.3,
               child: TextFormField(
                 style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-                controller: _passwordField,
+                controller: passwordField,
                 obscureText: true,
                 decoration: const InputDecoration(
                   hintText: "password",
@@ -113,7 +113,7 @@ class _AuthenticationState extends State<Authentication> {
               child: MaterialButton(
                 onPressed: () async {
                   bool shouldNavigate =
-                      await signIn(_emailField.text, _passwordField.text);
+                      await signIn(emailField.text, passwordField.text);
                   if (shouldNavigate) {
                     Navigator.push(
                       context,
@@ -133,26 +133,23 @@ class _AuthenticationState extends State<Authentication> {
             ),
 //Register Button snippet
             SizedBox(height: MediaQuery.of(context).size.height / 35),
+            // Alignment need to be done
             Container(
+              // alignment:,
               width: MediaQuery.of(context).size.width / 1.4,
               height: 45,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
-                color: Colors.white,
+                color: Color.fromARGB(142, 143, 143, 143),
               ),
               child: MaterialButton(
                 onPressed: () async {
-                  //
-                  //bool shouldNavigate =
-                  //    await register(_emailField.text, _passwordField.text);
-                  //if (shouldNavigate) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => Register(),
                     ),
                   );
-                  //}
                 },
                 child: const Text(
                   "Don't Have an Account? Sign up",
