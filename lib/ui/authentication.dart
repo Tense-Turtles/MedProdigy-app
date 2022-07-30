@@ -2,6 +2,7 @@
 
 import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:flutter/material.dart';
+import 'package:hospicare_app/ui/register.dart';
 import 'home_view.dart';
 
 class Authentication extends StatefulWidget {
@@ -21,34 +22,37 @@ class _AuthenticationState extends State<Authentication> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         // ignore: prefer_const_constructors
         decoration: BoxDecoration(
-          // ignore: prefer_const_constructors
-          color: Color.fromARGB(255, 61, 227, 230),
-        ),
+            //image: DecorationImage(
+            //image: AssetImage('assets/login.png'), fit: BoxFit.cover),
+            // ignore: prefer_const_constructors
+            ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              // ignore: prefer_const_constructors
-              child: Text(
-                'Login for Hospicare',
-                // ignore: prefer_const_constructors
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: const Text(
+                "LOGIN",
                 style: TextStyle(
-                    //fontFamily: 'TrajanPro'
-                    color: const Color.fromARGB(255, 48, 48, 48),
-                    fontWeight: FontWeight.w900,
-                    fontStyle: FontStyle.normal,
-                    fontFamily: 'SourceCodePro',
-                    fontSize: 30),
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF2661FA),
+                    fontSize: 36),
+                textAlign: TextAlign.left,
               ),
             ),
+//Email Text-Field
             Container(
               width: MediaQuery.of(context).size.width / 1.3,
+              padding: const EdgeInsets.only(top: 40),
               child: TextFormField(
                 style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                 controller: _emailField,
@@ -64,12 +68,12 @@ class _AuthenticationState extends State<Authentication> {
                 ),
               ),
             ),
+// Password Text-Field
             SizedBox(height: MediaQuery.of(context).size.height / 35),
             Container(
               width: MediaQuery.of(context).size.width / 1.3,
               child: TextFormField(
-                style:
-                    const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                 controller: _passwordField,
                 obscureText: true,
                 decoration: const InputDecoration(
@@ -84,6 +88,50 @@ class _AuthenticationState extends State<Authentication> {
                 ),
               ),
             ),
+//Forgot Password button
+            Container(
+              alignment: Alignment.centerRight,
+              margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              child: const Text(
+                "Forgot your password?",
+                style: TextStyle(fontSize: 12, color: Color(0XFF2661FA)),
+              ),
+            ),
+//Login Button snippet
+            SizedBox(height: size.height * 0.05),
+            //SizedBox(height: MediaQuery.of(context).size.height / 35),
+            Container(
+              height: 50.0,
+              width: size.width * 0.5,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(80.0),
+                  gradient: const LinearGradient(colors: [
+                    Color.fromARGB(255, 255, 136, 34),
+                    Color.fromARGB(255, 255, 177, 41)
+                  ])),
+              child: MaterialButton(
+                onPressed: () async {
+                  bool shouldNavigate =
+                      await signIn(_emailField.text, _passwordField.text);
+                  if (shouldNavigate) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    );
+                  }
+                },
+                padding: const EdgeInsets.all(0),
+                child: const Text(
+                  "LOGIN",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+//Register Button snippet
             SizedBox(height: MediaQuery.of(context).size.height / 35),
             Container(
               width: MediaQuery.of(context).size.width / 1.4,
@@ -94,42 +142,26 @@ class _AuthenticationState extends State<Authentication> {
               ),
               child: MaterialButton(
                 onPressed: () async {
-                  bool shouldNavigate =
-                      await register(_emailField.text, _passwordField.text);
-                  if (shouldNavigate) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeView(),
-                      ),
-                    );
-                  }
+                  //
+                  //bool shouldNavigate =
+                  //    await register(_emailField.text, _passwordField.text);
+                  //if (shouldNavigate) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Register(),
+                    ),
+                  );
+                  //}
                 },
-                child: const Text("Register"),
+                child: const Text(
+                  "Don't Have an Account? Sign up",
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF2661FA)),
+                ),
               ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height / 35),
-            Container(
-              width: MediaQuery.of(context).size.width / 1.4,
-              height: 45,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                color: Colors.white,
-              ),
-              child: MaterialButton(
-                  onPressed: () async {
-                    bool shouldNavigate =
-                        await signIn(_emailField.text, _passwordField.text);
-                    if (shouldNavigate) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeView(),
-                        ),
-                      );
-                    }
-                  },
-                  child: const Text("Login")),
             ),
           ],
         ),
