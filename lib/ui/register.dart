@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:hospicare_app/ui/authentication.dart';
-import 'package:hospicare_app/ui/home_view.dart';
 
 // implement the ui from the backgroud.dart
 class Register extends StatefulWidget {
@@ -24,9 +23,11 @@ class _RegisterState extends State<Register> {
     Size size = MediaQuery.of(context).size;
 
     return Container(
+        // ignore: prefer_const_constructors
         decoration: BoxDecoration(
             //image: DecorationImage(
             //    image: AssetImage('assets/register.png'), fit: BoxFit.cover),
+            // ignore: prefer_const_constructors
             color: Color.fromARGB(255, 255, 255, 255)),
         child: Scaffold(
             backgroundColor: Colors.transparent,

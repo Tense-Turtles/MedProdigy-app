@@ -140,14 +140,14 @@ class _AuthenticationState extends State<Authentication> {
               height: 45,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 255, 255, 255),
               ),
               child: MaterialButton(
                 onPressed: () async {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Register(),
+                      builder: (context) => const Register(),
                     ),
                   );
                 },

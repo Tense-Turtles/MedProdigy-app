@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, prefer_const_declarations
+
 class PatientData {
   //required coloumns in the database
   final int patient_id;

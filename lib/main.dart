@@ -17,9 +17,11 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Hospicare',
+      // ignore: prefer_const_constructors
       home: Authentication(),
     );
   }

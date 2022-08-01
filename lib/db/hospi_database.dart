@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, prefer_const_declarations, depend_on_referenced_packages
+
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:hospicare_app/model/db_model.dart';

@@ -36,6 +36,7 @@ class _HomeViewState extends State<HomeView> {
           () => currentIndex = index,
         ),
         iconSize: 35,
+        // ignore: prefer_const_literals_to_create_immutables
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'
               // backgroundColor: Colors.blue[300],
