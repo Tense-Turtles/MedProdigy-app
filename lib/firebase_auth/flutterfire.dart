@@ -14,10 +14,28 @@ Future<bool> signIn(String email, String password) async {
   }
 }
 
-Future<bool> register(String email, String password) async {
+// get data from registerpage to firestore
+bool register(String email, String password, String name, String age,
+    String phoneNumber) {
   try {
-    await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email, password: password);
+    FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+            // name: name,
+            // age: age,
+            // phoneNumber: phoneNumber,
+            email: email,
+            password: password)
+        .then((value) => {
+              FirebaseFirestore.instance
+                  .collection('user')
+                  .doc(value.user!.uid)
+                  .set({
+                "email": value.user!.email,
+                "phoneNumber": value.user!.phoneNumber,
+                // 'name': value.user!.uid.name,
+                // 'age': value.user!.uid.age,
+              })
+            });
     return true;
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {

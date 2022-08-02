@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:hospicare_app/ui/authentication.dart';
@@ -13,10 +15,11 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   // ignore: prefer_final_fields
+  TextEditingController nameField = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
   TextEditingController emailField = TextEditingController();
-
-  // ignore: prefer_final_fields
   TextEditingController passwordField = TextEditingController();
+  TextEditingController age = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -60,20 +63,34 @@ class _RegisterState extends State<Register> {
                       Container(
                         alignment: Alignment.center,
                         margin: const EdgeInsets.symmetric(horizontal: 40),
-                        child: const TextField(
+                        child: TextField(
+                          controller: nameField,
                           decoration: InputDecoration(labelText: "Name"),
                         ),
                       ),
-// Mobile text field
+// Age text Feild
+                      SizedBox(height: size.height * 0.04),
+                      Container(
+                        alignment: Alignment.center,
+                        margin: const EdgeInsets.symmetric(horizontal: 40),
+                        child: TextField(
+                          controller: age,
+                          decoration: InputDecoration(labelText: "Age"),
+                        ),
+                      ),
+
+// MobileNumber text field
                       SizedBox(height: size.height * 0.03),
                       Container(
                         alignment: Alignment.center,
                         margin: const EdgeInsets.symmetric(horizontal: 40),
-                        child: const TextField(
+                        child: TextField(
+                          controller: phoneNumber,
                           decoration:
                               InputDecoration(labelText: "Mobile Number"),
                         ),
                       ),
+
 // Email text field
                       SizedBox(height: size.height * 0.03),
                       Container(
@@ -104,8 +121,13 @@ class _RegisterState extends State<Register> {
                             horizontal: 40, vertical: 10),
                         child: MaterialButton(
                           onPressed: () async {
+                            // ignore: await_only_futures
                             bool shouldNavigate = await register(
-                                emailField.text, passwordField.text);
+                                emailField.text,
+                                passwordField.text,
+                                phoneNumber.text,
+                                nameField.text,
+                                age.text); //need to make changes here
                             if (shouldNavigate) {
                               // ignore: use_build_context_synchronously
                               Navigator.push(
