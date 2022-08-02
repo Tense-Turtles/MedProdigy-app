@@ -101,15 +101,6 @@ class _AuthenticationState extends State<Authentication> {
             SizedBox(height: size.height * 0.05),
             //SizedBox(height: MediaQuery.of(context).size.height / 35),
             Container(
-              height: 50.0,
-              width: size.width * 0.5,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(80.0),
-                  gradient: const LinearGradient(colors: [
-                    Color.fromARGB(255, 255, 136, 34),
-                    Color.fromARGB(255, 255, 177, 41)
-                  ])),
               child: MaterialButton(
                 onPressed: () async {
                   bool shouldNavigate =
@@ -123,11 +114,36 @@ class _AuthenticationState extends State<Authentication> {
                     );
                   }
                 },
-                padding: const EdgeInsets.all(0),
-                child: const Text(
-                  "LOGIN",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                // height: 50.0,
+                // color: const Color.fromARGB(255, 255, 136, 34),
+                // minWidth: 90,
+
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0)),
+
+                padding: const EdgeInsets.all(0.0),
+                // padding: const EdgeInsets.all(0.0),
+                child: Ink(
+                  width: size.width * 0.5,
+                  height: 50.0,
+                  decoration: const BoxDecoration(
+                    gradient: const LinearGradient(colors: [
+                      Color.fromARGB(255, 255, 136, 34),
+                      Color.fromARGB(255, 255, 177, 41)
+                    ]),
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  ),
+                  child: Container(
+                    // constraints: const BoxConstraints(
+                    //     // minWidth: 88.0,
+                    //     minHeight: 36.0), // min sizes for Material buttons
+                    alignment: Alignment.center,
+                    child: const Text(
+                      "LOGIN",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 255, 255),),
+                    ),
+                  ),
                 ),
               ),
             ),

@@ -26,11 +26,9 @@ class _RegisterState extends State<Register> {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-        // ignore: prefer_const_constructors
         decoration: BoxDecoration(
             //image: DecorationImage(
             //    image: AssetImage('assets/register.png'), fit: BoxFit.cover),
-            // ignore: prefer_const_constructors
             color: Color.fromARGB(255, 255, 255, 255)),
         child: Scaffold(
             backgroundColor: Colors.transparent,
