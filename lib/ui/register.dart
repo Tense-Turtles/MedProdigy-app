@@ -94,7 +94,14 @@ class _RegisterState extends State<Register> {
                       Container(
                         alignment: Alignment.center,
                         margin: const EdgeInsets.symmetric(horizontal: 40),
-                        child: TextField(
+                        child: TextFormField(
+                          validator: (val) {
+                            return RegExp(
+                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                    .hasMatch(val!)
+                                ? null
+                                : "Enter correct email";
+                          },
                           controller: emailField,
                           decoration: const InputDecoration(labelText: "Email"),
                         ),

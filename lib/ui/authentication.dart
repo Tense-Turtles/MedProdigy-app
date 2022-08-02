@@ -55,6 +55,13 @@ class _AuthenticationState extends State<Authentication> {
               width: MediaQuery.of(context).size.width / 1.3,
               padding: const EdgeInsets.only(top: 40),
               child: TextFormField(
+                validator: (val) {
+                  return RegExp(
+                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(val!)
+                      ? null
+                      : "Enter correct email";
+                },
                 style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                 controller: emailField,
                 decoration: const InputDecoration(
