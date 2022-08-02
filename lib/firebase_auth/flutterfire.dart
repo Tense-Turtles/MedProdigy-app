@@ -52,3 +52,11 @@ bool register(String email, String password, String name, String age,
     return false;
   }
 }
+
+Future resetPass(String email) async {
+  try {
+    return await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+  } catch (e) {
+    print(e.toString());
+  }
+}
