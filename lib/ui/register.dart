@@ -39,7 +39,7 @@ class _RegisterState extends State<Register> {
                 // mainAxisAlignment: MainAxisAlignment.center,
                 child: Container(
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.18),
+                      top: MediaQuery.of(context).size.height * 0.1),
 // heading
                   child: Column(
                     //mainAxisAlignment: MainAxisAlignment.center,
