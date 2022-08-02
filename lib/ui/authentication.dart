@@ -3,6 +3,7 @@
 import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:flutter/material.dart';
 import 'package:hospicare_app/ui/register.dart';
+import 'package:hospicare_app/ui/forgotPassword.dart';
 import 'home_view.dart';
 
 class Authentication extends StatefulWidget {
@@ -89,12 +90,26 @@ class _AuthenticationState extends State<Authentication> {
               ),
             ),
 //Forgot Password button
-            Container(
-              alignment: Alignment.centerRight,
-              margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-              child: const Text(
-                "Forgot your password?",
-                style: TextStyle(fontSize: 12, color: Color(0XFF2661FA)),
+            SizedBox(
+              height: 8,
+            ),
+            GestureDetector(
+              onTap: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ForgetPassword(),
+                  ),
+                );
+              },
+              child: Container(
+                alignment: Alignment.centerRight,
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                child: (Text(
+                  'Forgot your password?',
+                  style: TextStyle(fontSize: 12, color: Color(0XFF2661FA)),
+                )),
               ),
             ),
 //Login Button snippet
@@ -141,7 +156,10 @@ class _AuthenticationState extends State<Authentication> {
                     child: const Text(
                       "LOGIN",
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 255, 255),),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
                     ),
                   ),
                 ),
