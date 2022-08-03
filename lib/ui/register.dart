@@ -31,11 +31,8 @@ class _RegisterState extends State<Register> {
     }
 
     // add userdetails
-    addUserDetails(
-        _nameContorller.text.trim(),
-        _emailContoller.text.trim(),
-        int.parse(_ageContorller.text.trim()),
-        int.parse(_phoneNumberContorller.text.trim()));
+    addUserDetails(_nameContorller.text.trim(), _emailContoller.text.trim(),
+        _ageContorller.text.trim(), _phoneNumberContorller.text.trim());
   }
 
 //method to check password and confirmpassword are same
@@ -49,7 +46,7 @@ class _RegisterState extends State<Register> {
   }
 
   Future addUserDetails(
-      String name, String email, int age, int phoneNumber) async {
+      String name, String email, String age, String phoneNumber) async {
     try {
       await FirebaseFirestore.instance.collection('users').add({
         'name': name,

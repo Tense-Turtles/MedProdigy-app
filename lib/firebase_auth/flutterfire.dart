@@ -1,4 +1,6 @@
 // ignore: unused_import
+// ignore_for_file: avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -8,7 +10,6 @@ Future<bool> signIn(String email, String password) async {
         .signInWithEmailAndPassword(email: email, password: password);
     return true;
   } catch (e) {
-    // ignore: avoid_print
     print(e);
     return false;
   }
@@ -39,15 +40,12 @@ bool register(String email, String password, String name, String age,
     return true;
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
-      // ignore: avoid_print
       print('The password provided is too weak.');
     } else if (e.code == 'email-already-in-use') {
-      // ignore: avoid_print
       print('The account already exists for that email.');
     }
     return false;
   } catch (e) {
-    // ignore: avoid_print
     print(e.toString());
     return false;
   }
