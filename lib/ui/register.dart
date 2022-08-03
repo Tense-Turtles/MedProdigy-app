@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_field, avoid_print, use_build_context_synchronously
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:hospicare_app/ui/authentication.dart';
 
 // implement the ui from the backgroud.dart
@@ -14,12 +15,52 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  // ignore: prefer_final_fields
-  TextEditingController nameField = TextEditingController();
-  TextEditingController phoneNumber = TextEditingController();
-  TextEditingController emailField = TextEditingController();
-  TextEditingController passwordField = TextEditingController();
-  TextEditingController age = TextEditingController();
+  final _emailContoller = TextEditingController();
+  final _passwordContoller = TextEditingController();
+  final _nameContorller = TextEditingController();
+  final _ageContorller = TextEditingController();
+  final _phoneNumberContorller = TextEditingController();
+  final _confirmpasswordController = TextEditingController();
+
+  Future signUp() async {
+    if (passwordConfirmed()) {
+      //create user
+      FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailContoller.text.trim(),
+          password: _passwordContoller.text.trim());
+    }
+
+    // add userdetails
+    addUserDetails(
+        _nameContorller.text.trim(),
+        _emailContoller.text.trim(),
+        int.parse(_ageContorller.text.trim()),
+        int.parse(_phoneNumberContorller.text.trim()));
+  }
+
+//method to check password and confirmpassword are same
+  bool passwordConfirmed() {
+    if (_passwordContoller.text.trim() ==
+        _confirmpasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future addUserDetails(
+      String name, String email, int age, int phoneNumber) async {
+    try {
+      await FirebaseFirestore.instance.collection('users').add({
+        'name': name,
+        'age': age,
+        'email': email,
+        'phoneNumber': phoneNumber
+      });
+    } on Exception catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +103,7 @@ class _RegisterState extends State<Register> {
                         alignment: Alignment.center,
                         margin: const EdgeInsets.symmetric(horizontal: 40),
                         child: TextField(
-                          controller: nameField,
+                          controller: _nameContorller,
                           decoration: InputDecoration(labelText: "Name"),
                         ),
                       ),
@@ -72,7 +113,7 @@ class _RegisterState extends State<Register> {
                         alignment: Alignment.center,
                         margin: const EdgeInsets.symmetric(horizontal: 40),
                         child: TextField(
-                          controller: age,
+                          controller: _ageContorller,
                           decoration: InputDecoration(labelText: "Age"),
                         ),
                       ),
@@ -83,7 +124,7 @@ class _RegisterState extends State<Register> {
                         alignment: Alignment.center,
                         margin: const EdgeInsets.symmetric(horizontal: 40),
                         child: TextField(
-                          controller: phoneNumber,
+                          controller: _phoneNumberContorller,
                           decoration:
                               InputDecoration(labelText: "Mobile Number"),
                         ),
@@ -102,19 +143,32 @@ class _RegisterState extends State<Register> {
                                 ? null
                                 : "Enter correct email";
                           },
-                          controller: emailField,
+                          controller: _emailContoller,
                           decoration: const InputDecoration(labelText: "Email"),
                         ),
                       ),
+
 // Password text field
                       SizedBox(height: size.height * 0.03),
                       Container(
                         alignment: Alignment.center,
                         margin: const EdgeInsets.symmetric(horizontal: 40),
                         child: TextField(
-                          controller: passwordField,
+                          controller: _passwordContoller,
                           decoration:
                               const InputDecoration(labelText: "Password"),
+                          obscureText: true,
+                        ),
+                      ),
+//confirm password
+                      SizedBox(height: size.height * 0.03),
+                      Container(
+                        alignment: Alignment.center,
+                        margin: const EdgeInsets.symmetric(horizontal: 40),
+                        child: TextField(
+                          controller: _confirmpasswordController,
+                          decoration: const InputDecoration(
+                              labelText: "Confirm Password"),
                           obscureText: true,
                         ),
                       ),
@@ -126,15 +180,8 @@ class _RegisterState extends State<Register> {
                             horizontal: 40, vertical: 10),
                         child: MaterialButton(
                           onPressed: () async {
-                            // ignore: await_only_futures
-                            bool shouldNavigate = await register(
-                                emailField.text,
-                                passwordField.text,
-                                phoneNumber.text,
-                                nameField.text,
-                                age.text); //need to make changes here
+                            bool shouldNavigate = await signUp() ?? true;
                             if (shouldNavigate) {
-                              // ignore: use_build_context_synchronously
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

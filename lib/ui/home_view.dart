@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, unused_import, duplicate_ignore, prefer_const_constructors
+// ignore_for_file: library_private_types_in_public_api, unused_import, duplicate_ignore, prefer_const_constructors, sized_box_for_whitespace,prefer_const_literals_to_create_immutables
 
 // ignore: unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -149,8 +149,6 @@ class _HomeViewState extends State<HomeView> {
           () => currentIndex = index,
         ),
         iconSize: 35,
-
-        // ignore: prefer_const_literals_to_create_immutables
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'
               // backgroundColor: Colors.blue[300],

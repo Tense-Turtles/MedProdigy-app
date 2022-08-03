@@ -1,5 +1,7 @@
 // if you are giving your original emailID then please check the spam folder
 
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hospicare_app/ui/authentication.dart';
 import 'package:flutter/material.dart';

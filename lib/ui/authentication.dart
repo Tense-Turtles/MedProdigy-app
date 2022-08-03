@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, unnecessary_const, sized_box_for_whitespace, use_build_context_synchronously
+// ignore_for_file: avoid_unnecessary_containers, unnecessary_const, sized_box_for_whitespace, use_build_context_synchronously, prefer_const_constructors
 
 import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:flutter/material.dart';
@@ -29,11 +29,9 @@ class _AuthenticationState extends State<Authentication> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        // ignore: prefer_const_constructors
         decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)
             //image: DecorationImage(
             //image: AssetImage('assets/main.png'), fit: BoxFit.cover),
-            // ignore: prefer_const_constructors
             ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
