@@ -4,7 +4,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hospicare_app/ui/bluetooth.dart';
+import 'package:hospicare_app/serial_bluetooth/MainPage.dart';
 
 class HomeView extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -36,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Bluettooth_page(),
+                    builder: (context) => MainPage(),
                   ),
                 );
               },
