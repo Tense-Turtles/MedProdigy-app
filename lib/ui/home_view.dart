@@ -1,9 +1,10 @@
-// ignore_for_file: library_private_types_in_public_api, unused_import, duplicate_ignore, prefer_const_constructors, sized_box_for_whitespace,prefer_const_literals_to_create_immutables
+// ignore_for_file: library_private_types_in_public_api, unused_import, duplicate_ignore, prefer_const_constructors, sized_box_for_whitespace,prefer_const_literals_to_create_immutables, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables
 
 // ignore: unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hospicare_app/ui/bluetooth.dart';
 
 class HomeView extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -25,9 +26,31 @@ class _HomeViewState extends State<HomeView> {
           padding: const EdgeInsets.symmetric(vertical: 30),
           width: double.infinity,
           // height: double.infinity,
-          child: Center(child: Text('Home')),
+          child: Center(child: Text('Home Page')),
         ),
-        SizedBox(height: 200),
+        SizedBox(height: 50),
+        Row(
+          children: [
+            MaterialButton(
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Bluettooth_page(),
+                  ),
+                );
+              },
+              child: const Text(
+                "Bluetooth",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF2661FA)),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 50),
         Center(
             child: Row(
           children: <Widget>[
