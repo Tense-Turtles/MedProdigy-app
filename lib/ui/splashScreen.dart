@@ -17,7 +17,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     Future.delayed(Duration(seconds: 3)).then((_) {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => Authentication()));
+          context, MaterialPageRoute(builder: (_) => HomePage()));
     });
     super.initState();
   }

@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             decoration: BoxDecoration(
               color: Theme.of(context).backgroundColor,
             ),
-            child: Image.asset("assets/user.png", fit: BoxFit.fill),
+            child: Image.asset("", fit: BoxFit.fill),
           ),
         ).p(8),
       ],
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text("Hello,", style: TextStyles.title.subTitleColor),
+        Text("Hello,", style: TextStyles.body.bold),
         Text("Peter Parker", style: TextStyles.h1Style),
       ],
     ).p16;
@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("Category", style: TextStyles.title.bold),
+              Text("Parameter", style: TextStyles.title.bold),
               Text(
                 "See All",
                 style: TextStyles.titleNormal
@@ -118,15 +118,15 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: <Widget>[
-              _categoryCard("Chemist & Drugist", "350 + Stores",
+              _categoryCard("80°", "Chemist & Drugist", "350 + Stores",
                   color: LightColor.green, lightColor: LightColor.lightGreen),
-              _categoryCard("Covid - 19 Specialist", "899 Doctors",
+              _categoryCard("", "Covid - 19 Specialist", "899 Doctors",
                   color: LightColor.skyBlue, lightColor: LightColor.lightBlue),
-              _categoryCard("Cardiologists Specialist", "500 + Doctors",
+              _categoryCard("", "Cardiologists Specialist", "500 + Doctors",
                   color: LightColor.orange, lightColor: LightColor.lightOrange),
-              _categoryCard("Dermatologist", "300 + Doctors",
+              _categoryCard("", "Dermatologist", "300 + Doctors",
                   color: LightColor.green, lightColor: LightColor.lightGreen),
-              _categoryCard("General Surgeon", "500 + Doctors",
+              _categoryCard("", "General Surgeon", "500 + Doctors",
                   color: LightColor.skyBlue, lightColor: LightColor.lightBlue)
             ],
           ),
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _categoryCard(String title, String subtitle,
+  Widget _categoryCard(String indi, String title, String subtitle,
       {required Color color, required Color lightColor}) {
     TextStyle titleStyle = TextStyles.title.bold.white;
     TextStyle subtitleStyle = TextStyles.body.bold.white;
@@ -151,7 +151,9 @@ class _HomePageState extends State<HomePage> {
         margin: EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 10),
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ),
           boxShadow: <BoxShadow>[
             BoxShadow(
               offset: Offset(4, 4),
@@ -169,6 +171,10 @@ class _HomePageState extends State<HomePage> {
                   top: -20,
                   left: -20,
                   child: CircleAvatar(
+                    child: Text(
+                      indi,
+                      style: TextStyles.h1Style.bold,
+                    ),
                     backgroundColor: lightColor,
                     radius: 60,
                   ),
@@ -196,28 +202,28 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _doctorsList() {
-    return SliverList(
-      delegate: SliverChildListDelegate(
-        [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text("Top Doctors", style: TextStyles.title.bold),
-              IconButton(
-                  icon: Icon(
-                    Icons.sort,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  onPressed: () {})
-              // .p(12).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
-            ],
-          ).hP16,
-          // getdoctorWidgetList()
-        ],
-      ),
-    );
-  }
+  // Widget _doctorsList() {
+  //   return SliverList(
+  //     delegate: SliverChildListDelegate(
+  //       [
+  //         Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           children: <Widget>[
+  //             Text("Top Doctors", style: TextStyles.title.bold),
+  //             IconButton(
+  //                 icon: Icon(
+  //                   Icons.sort,
+  //                   color: Theme.of(context).primaryColor,
+  //                 ),
+  //                 onPressed: () {})
+  //             // .p(12).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
+  //           ],
+  //         ).hP16,
+  //         // getdoctorWidgetList()
+  //       ],
+  //     ),
+  //   );
+  // }
 
   // Widget getdoctorWidgetList() {
   //   return Column(
@@ -314,22 +320,11 @@ class _HomePageState extends State<HomePage> {
           color: Colors.black,
         ),
         actions: <Widget>[
-          Icon(
+          const Icon(
             Icons.notifications_none,
             size: 20,
             color: LightColor.grey,
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(13)),
-            child: Container(
-              // height: 40,
-              // width: 40,
-              decoration: BoxDecoration(
-                color: Theme.of(context).backgroundColor,
-              ),
-              child: Image.asset("assets/user.png", fit: BoxFit.fill),
-            ),
-          ).p(8),
         ],
       ),
       backgroundColor: Theme.of(context).backgroundColor,
@@ -344,7 +339,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          _doctorsList()
+          // _doctorsList()
         ],
       ),
     );
