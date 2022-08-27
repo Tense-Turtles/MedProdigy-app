@@ -1,7 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'ui/authentication.dart';
+import 'package:hospicare_app/ui/splashScreen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Hospicare',
       // ignore: prefer_const_constructors
-      home: Authentication(),
+      home: SplashPage(),
     );
   }
 }
