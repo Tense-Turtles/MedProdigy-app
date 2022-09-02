@@ -181,7 +181,7 @@ class _HomeViewState extends State<HomeView> {
           CustomBottomBoxBarItem(Icons.home, Text('Home')),
           CustomBottomBoxBarItem(Icons.history_rounded, Text('Logs')),
           CustomBottomBoxBarItem(Icons.person, Text('Profile')),
-          CustomBottomBoxBarItem(Icons.work_outline_rounded, Text('Work')),
+          // CustomBottomBoxBarItem(Icons.work_outline_rounded, Text('Work')),
         ],
       ),
 
