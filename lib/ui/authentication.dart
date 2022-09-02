@@ -129,7 +129,7 @@ class _AuthenticationState extends State<Authentication> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => HomeView(),
                       ),
                     );
                   }

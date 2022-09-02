@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hospicare_app/ui/authentication.dart';
 import 'package:hospicare_app/ui/themes/light_color.dart';
 import 'package:hospicare_app/ui/themes/text_styles.dart';
-import 'package:hospicare_app/ui/themes/extention.dart';
 import 'package:hospicare_app/ui/home_view.dart';
 
 class SplashPage extends StatefulWidget {
@@ -17,7 +16,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     Future.delayed(Duration(seconds: 3)).then((_) {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => HomePage()));
+          context, MaterialPageRoute(builder: (_) => HomeView()));
     });
     super.initState();
   }
@@ -65,18 +64,18 @@ class _SplashPageState extends State<SplashPage> {
               // ),
               Text(
                 "MediProdigy",
-                style: TextStyles.h1Style.white,
+                style: TextStyles.h1Style,
               ),
               Text(
                 "By healthcare Evolution",
-                style: TextStyles.bodySm.white.bold,
+                style: TextStyles.bodySm,
               ),
               Expanded(
                 flex: 7,
                 child: SizedBox(),
               ),
             ],
-          ).alignTopCenter,
+          ),
         ],
       ),
     );

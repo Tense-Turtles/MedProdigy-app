@@ -1,6 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hospicare_app/ui/home_view.dart';
 import 'package:hospicare_app/ui/splashScreen.dart';
 import 'firebase_options.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MedProdigy',
       // ignore: prefer_const_constructors
-      home: SplashPage(),
+      home: HomeView(),
     );
   }
 }
