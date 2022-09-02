@@ -1,187 +1,345 @@
-// ignore_for_file: library_private_types_in_public_api, unused_import, duplicate_ignore, prefer_const_constructors, sized_box_for_whitespace,prefer_const_literals_to_create_immutables, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables
+import 'dart:math';
 
-// ignore: unused_import
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hospicare_app/serial_bluetooth/MainPage.dart';
+// import 'package:flutter_healthcare_app/src/model/dactor_model.dart';
+// import 'package:flutter_healthcare_app/src/model/data.dart';
+import 'package:hospicare_app/ui/themes/extention.dart';
+import 'package:hospicare_app/ui/themes/light_color.dart';
+import 'package:hospicare_app/ui/themes/text_styles.dart';
+import 'package:hospicare_app/ui/themes/theme.dart';
 
-class HomeView extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
-  HomeView({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomeViewState createState() => _HomeViewState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeViewState extends State<HomeView> {
-  int currentIndex = 0;
+class _HomePageState extends State<HomePage> {
+  // List<DoctorModel> doctorDataList;
+  // @override
+  // void initState() {
+  //   doctorDataList = doctorMapList.map((x) => DoctorModel.fromJson(x)).toList();
+  //   super.initState();
+  // }
+
+  Widget _appBar() {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Theme.of(context).backgroundColor,
+      leading: Icon(
+        Icons.short_text,
+        size: 20,
+        color: Colors.black,
+      ),
+      actions: <Widget>[
+        Icon(
+          Icons.notifications_none,
+          size: 20,
+          color: LightColor.grey,
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(13)),
+          child: Container(
+            // height: 40,
+            // width: 40,
+            decoration: BoxDecoration(
+              color: Theme.of(context).backgroundColor,
+            ),
+            child: Image.asset("", fit: BoxFit.fill),
+          ),
+        ).p(8),
+      ],
+    );
+  }
+
+  Widget _header() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text("Hello,", style: TextStyles.body.bold),
+        Text("Peter Parker", style: TextStyles.h1Style),
+      ],
+    ).p16;
+  }
+
+  // Widget _searchField() {
+  //   return Container(
+  //     height: 55,
+  //     margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+  //     width: MediaQuery.of(context).size.width,
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.all(Radius.circular(13)),
+  //       boxShadow: <BoxShadow>[
+  //         BoxShadow(
+  //           color: LightColor.grey.withOpacity(.3),
+  //           blurRadius: 15,
+  //           offset: Offset(5, 5),
+  //         )
+  //       ],
+  //     ),
+  //     child: TextField(
+  //       decoration: InputDecoration(
+  //         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+  //         border: InputBorder.none,
+  //         hintText: "Search",
+  //         hintStyle: TextStyles.body.subTitleColor,
+  //         suffixIcon: SizedBox(
+  //             width: 50,
+  //             child: Icon(Icons.search, color: LightColor.purple)
+  //                 .alignCenter
+  //                 .ripple(() {}, borderRadius: BorderRadius.circular(13))),
+  //       ),
+  //     ),
+  //   );
+  // }
+
+  Widget _category() {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.only(top: 8, right: 16, left: 16, bottom: 4),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text("Parameter", style: TextStyles.title.bold),
+              Text(
+                "See All",
+                style: TextStyles.titleNormal
+                    .copyWith(color: Theme.of(context).primaryColor),
+              ).p(8).ripple(() {})
+            ],
+          ),
+        ),
+        SizedBox(
+          height: AppTheme.fullHeight(context) * .28,
+          width: AppTheme.fullWidth(context),
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              _categoryCard("80°", "Chemist & Drugist", "350 + Stores",
+                  color: LightColor.green, lightColor: LightColor.lightGreen),
+              _categoryCard("", "Covid - 19 Specialist", "899 Doctors",
+                  color: LightColor.skyBlue, lightColor: LightColor.lightBlue),
+              _categoryCard("", "Cardiologists Specialist", "500 + Doctors",
+                  color: LightColor.orange, lightColor: LightColor.lightOrange),
+              _categoryCard("", "Dermatologist", "300 + Doctors",
+                  color: LightColor.green, lightColor: LightColor.lightGreen),
+              _categoryCard("", "General Surgeon", "500 + Doctors",
+                  color: LightColor.skyBlue, lightColor: LightColor.lightBlue)
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _categoryCard(String indi, String title, String subtitle,
+      {required Color color, required Color lightColor}) {
+    TextStyle titleStyle = TextStyles.title.bold.white;
+    TextStyle subtitleStyle = TextStyles.body.bold.white;
+    if (AppTheme.fullWidth(context) < 392) {
+      titleStyle = TextStyles.body.bold.white;
+      subtitleStyle = TextStyles.bodySm.bold.white;
+    }
+    return AspectRatio(
+      aspectRatio: 6 / 8,
+      child: Container(
+        height: 280,
+        width: AppTheme.fullWidth(context) * .3,
+        margin: EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 10),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              offset: Offset(4, 4),
+              blurRadius: 10,
+              color: lightColor.withOpacity(.8),
+            )
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          child: Container(
+            child: Stack(
+              children: <Widget>[
+                Positioned(
+                  top: -20,
+                  left: -20,
+                  child: CircleAvatar(
+                    child: Text(
+                      indi,
+                      style: TextStyles.h1Style.bold,
+                    ),
+                    backgroundColor: lightColor,
+                    radius: 60,
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Flexible(
+                      child: Text(title, style: titleStyle).hP8,
+                    ),
+                    SizedBox(height: 10),
+                    Flexible(
+                      child: Text(
+                        subtitle,
+                        style: subtitleStyle,
+                      ).hP8,
+                    ),
+                  ],
+                ).p16
+              ],
+            ),
+          ),
+        ).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
+      ),
+    );
+  }
+
+  // Widget _doctorsList() {
+  //   return SliverList(
+  //     delegate: SliverChildListDelegate(
+  //       [
+  //         Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           children: <Widget>[
+  //             Text("Top Doctors", style: TextStyles.title.bold),
+  //             IconButton(
+  //                 icon: Icon(
+  //                   Icons.sort,
+  //                   color: Theme.of(context).primaryColor,
+  //                 ),
+  //                 onPressed: () {})
+  //             // .p(12).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
+  //           ],
+  //         ).hP16,
+  //         // getdoctorWidgetList()
+  //       ],
+  //     ),
+  //   );
+  // }
+
+  // Widget getdoctorWidgetList() {
+  //   return Column(
+  //       children: doctorDataList.map((x) {
+  //     return _doctorTile(x);
+  //   }).toList());
+  // }
+
+  // Widget _doctorTile(DoctorModel model) {
+  //   return Container(
+  //     margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.all(Radius.circular(20)),
+  //       boxShadow: <BoxShadow>[
+  //         BoxShadow(
+  //           offset: Offset(4, 4),
+  //           blurRadius: 10,
+  //           color: LightColor.grey.withOpacity(.2),
+  //         ),
+  //         BoxShadow(
+  //           offset: Offset(-3, 0),
+  //           blurRadius: 15,
+  //           color: LightColor.grey.withOpacity(.1),
+  //         )
+  //       ],
+  //     ),
+  //     child: Container(
+  //       padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+  //       child: ListTile(
+  //         contentPadding: EdgeInsets.all(0),
+  //         leading: ClipRRect(
+  //           borderRadius: BorderRadius.all(Radius.circular(13)),
+  //           child: Container(
+  //             height: 55,
+  //             width: 55,
+  //             decoration: BoxDecoration(
+  //               borderRadius: BorderRadius.circular(15),
+  //               color: randomColor(),
+  //             ),
+  //             child: Image.asset(
+  //               model.image,
+  //               height: 50,
+  //               width: 50,
+  //               fit: BoxFit.contain,
+  //             ),
+  //           ),
+  //         ),
+  //         title: Text(model.name, style: TextStyles.title.bold),
+  //         subtitle: Text(
+  //           model.type,
+  //           style: TextStyles.bodySm.subTitleColor.bold,
+  //         ),
+  //         trailing: Icon(
+  //           Icons.keyboard_arrow_right,
+  //           size: 30,
+  //           color: Theme.of(context).primaryColor,
+  //         ),
+  //       ),
+  //     ).ripple(() {
+  //       Navigator.pushNamed(context, "/DetailPage", arguments: model);
+  //     }, borderRadius: BorderRadius.all(Radius.circular(20))),
+  //   );
+  // }
+
+  Color randomColor() {
+    var random = Random();
+    final colorList = [
+      Theme.of(context).primaryColor,
+      LightColor.orange,
+      LightColor.green,
+      LightColor.grey,
+      LightColor.lightOrange,
+      LightColor.skyBlue,
+      LightColor.titleTextColor,
+      Colors.red,
+      Colors.brown,
+      LightColor.purpleExtraLight,
+      LightColor.skyBlue,
+    ];
+    var color = colorList[random.nextInt(colorList.length)];
+    return color;
+  }
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    var screens = [
-      ListView(children: <Widget>[
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 30),
-          width: double.infinity,
-          // height: double.infinity,
-          child: Center(child: Text('Home Page')),
-        ),
-        SizedBox(height: 50),
-        Row(
-          children: [
-            MaterialButton(
-              onPressed: () async {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MainPage(),
-                  ),
-                );
-              },
-              child: const Text(
-                "Bluetooth",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF2661FA)),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 50),
-        Center(
-            child: Row(
-          children: <Widget>[
-            Card(
-              color: Colors.teal[300],
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  debugPrint('Card tapped.');
-                },
-                child: SizedBox(
-                  // width: double.infinity,
-                  width: size.width * 0.31,
-                  height: 150,
-                  child: Center(child: Text('1st card')),
-                ),
-              ),
-            ),
-            Card(
-              color: Colors.teal[200],
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  debugPrint('Card tapped.');
-                },
-                child: SizedBox(
-                  width: size.width * 0.31,
-                  // width: double.infinity,
-                  height: 150,
-                  child: Center(child: Text('2nd card')),
-                ),
-              ),
-            ),
-            Card(
-              color: Colors.teal[300],
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  debugPrint('Card tapped.');
-                },
-                child: SizedBox(
-                  width: size.width * 0.31,
-                  // width: double.infinity,
-                  height: 150,
-                  child: Center(child: Text('3rd card')),
-                ),
-              ),
-            )
-          ],
-        )),
-        Center(
-            child: Row(
-          children: <Widget>[
-            Card(
-              color: Colors.teal[300],
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  debugPrint('Card tapped.');
-                },
-                child: SizedBox(
-                  // width: double.infinity,
-                  width: size.width * 0.31,
-                  height: 150,
-                  child: Center(child: Text('4th card')),
-                ),
-              ),
-            ),
-            Card(
-              color: Colors.teal[200],
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  debugPrint('Card tapped.');
-                },
-                child: SizedBox(
-                  width: size.width * 0.31,
-                  // width: double.infinity,
-                  height: 150,
-                  child: Center(child: Text('5th card')),
-                ),
-              ),
-            ),
-            Card(
-              color: Colors.teal[300],
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  debugPrint('Card tapped.');
-                },
-                child: SizedBox(
-                  width: size.width * 0.31,
-                  // width: double.infinity,
-                  height: 150,
-                  child: Center(child: Text('6th card')),
-                ),
-              ),
-            )
-          ],
-        )),
-      ]),
-      Center(child: Text('Health')),
-      Center(child: Text('Profile')),
-    ];
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('HOSPICARE'),
         elevation: 0,
-        centerTitle: true,
-      ),
-      body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: screens[currentIndex]),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (index) => setState(
-          () => currentIndex = index,
+        backgroundColor: Theme.of(context).backgroundColor,
+        leading: Icon(
+          Icons.short_text,
+          size: 20,
+          color: Colors.black,
         ),
-        iconSize: 35,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'
-              // backgroundColor: Colors.blue[300],
-              ),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Health'
-              // backgroundColor: Colors.blue[300],
-              ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'
-              // backgroundColor: Colors.blue[300],
-              ),
+        actions: <Widget>[
+          const Icon(
+            Icons.notifications_none,
+            size: 20,
+            color: LightColor.grey,
+          ),
+        ],
+      ),
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                _header(),
+                //  _searchField(),
+                _category(),
+              ],
+            ),
+          ),
+          // _doctorsList()
         ],
       ),
     );
