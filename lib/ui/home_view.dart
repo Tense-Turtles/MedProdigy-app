@@ -30,29 +30,7 @@ class _HomeViewState extends State<HomeView> {
           padding: const EdgeInsets.symmetric(vertical: 30),
           width: double.infinity,
           // height: double.infinity,
-          child: Center(child: Text('Home Page')),
-        ),
-        SizedBox(height: 50),
-        Row(
-          children: [
-            MaterialButton(
-              onPressed: () async {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MainPage(),
-                  ),
-                );
-              },
-              child: const Text(
-                "Bluetooth",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF2661FA)),
-              ),
-            ),
-          ],
+          child: Center(child: Text('Hello Sriram')),
         ),
         SizedBox(height: 50),
         Center(
@@ -152,9 +130,33 @@ class _HomeViewState extends State<HomeView> {
                   child: Center(child: Text('6th card')),
                 ),
               ),
-            )
+            ),
           ],
         )),
+        SizedBox(height: 50),
+        Center(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Color.fromARGB(255, 16, 255, 203), // background
+              onPrimary: Colors.white, // foreground
+            ),
+            onPressed: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MainPage(),
+                ),
+              );
+            },
+            child: const Text(
+              "Bluetooth",
+              style: TextStyle(
+                  fontSize: 12,
+                  //  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 0, 0, 0)),
+            ),
+          ),
+        ),
       ]),
       Center(child: Text('Health')),
       Center(child: Text('Profile')),
