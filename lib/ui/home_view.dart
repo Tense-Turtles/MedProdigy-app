@@ -1,11 +1,11 @@
-// ignore_for_file: library_private_types_in_public_api, unused_import, duplicate_ignore, prefer_const_constructors, sized_box_for_whitespace,prefer_const_literals_to_create_immutables, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables, unused_local_variable
+// ignore_for_file: library_private_types_in_public_api, unused_import, duplicate_ignore, prefer_const_constructors, sized_box_for_whitespace,prefer_const_literals_to_create_immutables, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables, unused_local_variable, unnecessary_new, implementation_imports, unnecessary_import
 
 // ignore: unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hospicare_app/serial_bluetooth/MainPage.dart';
-
+import 'package:flutter/src/painting/box_shadow.dart';
 import 'themes/custom_nv_bar.dart';
 
 class HomeView extends StatefulWidget {
@@ -73,6 +73,35 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                 )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: height * 0.05,
+          ),
+          Container(
+            height: 230,
+            child: Stack(
+              children: [
+                Positioned(
+                    top: 35,
+                    left: 20,
+                    child: Material(
+                      child: Container(
+                        height: 180,
+                        width: width * 0.9,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.grey.withOpacity(0.3),
+                                  offset: Offset(-10, 10),
+                                  spreadRadius: 4,
+                                  blurRadius: 20)
+                            ]),
+                      ),
+                    ))
               ],
             ),
           )
