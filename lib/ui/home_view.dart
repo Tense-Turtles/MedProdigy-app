@@ -74,6 +74,16 @@ class _HomeViewState extends State<HomeView> {
           ),
           Container(
             height: 230,
+            decoration: BoxDecoration(
+                borderRadius:
+                    BorderRadius.only(bottomRight: Radius.circular(50)),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      offset: Offset(-10, 10),
+                      blurRadius: 20,
+                      spreadRadius: 4)
+                ]),
             child: Stack(
               children: [
                 Positioned(
@@ -197,6 +207,54 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Text(
                                 "these are your blood pressure readings",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+//Temperature
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 10, top: 25),
+                        height: 200,
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, bottom: 20),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(80),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    offset: Offset(-10, 10),
+                                    blurRadius: 20,
+                                    spreadRadius: 4)
+                              ]),
+                          padding: const EdgeInsets.only(
+                            left: 32,
+                            top: 50,
+                            bottom: 50,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "Temperature",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                "these are your Temperature readings",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 13,
