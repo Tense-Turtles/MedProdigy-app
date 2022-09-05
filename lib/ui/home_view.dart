@@ -264,6 +264,54 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                       ),
+//Spo2
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 10, top: 25),
+                        height: 200,
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, bottom: 20),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(80),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    offset: Offset(-10, 10),
+                                    blurRadius: 20,
+                                    spreadRadius: 4)
+                              ]),
+                          padding: const EdgeInsets.only(
+                            left: 32,
+                            top: 50,
+                            bottom: 50,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "SpO\u2082",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                "these are your SpO\u2082 readings",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   )))
         ],
