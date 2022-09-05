@@ -58,18 +58,11 @@ class _HomeViewState extends State<HomeView> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 20),
                     ),
-                    onPressed: () async {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MainPage(),
-                        ),
-                      );
-                    },
+                    onPressed: () async {},
                     child: const Text(
-                      'Enable Bluetooth',
+                      'Welcome to MedProdegy',
                       style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                 )
@@ -100,6 +93,70 @@ class _HomeViewState extends State<HomeView> {
                                   spreadRadius: 4,
                                   blurRadius: 20)
                             ]),
+                      ),
+                    )),
+                Positioned(
+                  top: 0,
+                  left: 30,
+                  child: Card(
+                      elevation: 10.0,
+                      shadowColor: Colors.grey.withOpacity(0.5),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Container(
+                        height: 200,
+                        width: 150,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: AssetImage('assets/images/logo.jpeg'))),
+                      )),
+                ),
+                Positioned(
+                    top: 45,
+                    left: 190,
+                    child: Container(
+                      height: 150,
+                      width: 170,
+                      child: Column(
+                        children: [
+                          Positioned(
+                            top: 110,
+                            left: 20,
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle: const TextStyle(fontSize: 20),
+                              ),
+                              onPressed: () async {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MainPage(),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                'Click below to enable bluetooth',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                              child: ListView(
+                            children: [
+                              Container(
+                                margin:
+                                    const EdgeInsets.only(bottom: 10, top: 25),
+                                height: 200,
+                                padding: const EdgeInsets.only(
+                                    left: 20, right: 20, bottom: 20),
+                              )
+                            ],
+                          ))
+                        ],
                       ),
                     ))
               ],
