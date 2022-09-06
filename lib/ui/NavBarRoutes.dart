@@ -22,7 +22,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int currentIndex = 0;
-  List<Widget> myList = [homepage(), logs(), profileview()];
+  List<Widget> myList = [homepage(), logs(), settingsview()];
 
   void onTabTapped(int index) {
     setState(() {
@@ -52,7 +52,8 @@ class _HomeViewState extends State<HomeView> {
               label: "Home",
             ),
             BottomNavigationBarItem(icon: Icon(Icons.list), label: "Logs"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: "Settings"),
           ]),
     );
   }
