@@ -9,7 +9,8 @@ class logs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return SafeArea(
+        child: ListView(
       padding: const EdgeInsets.all(8),
       children: const <Widget>[
         Card(
@@ -49,6 +50,6 @@ class logs extends StatelessWidget {
                   textAlign: TextAlign.end,
                 ))),
       ],
-    );
+    ));
   }
 }
