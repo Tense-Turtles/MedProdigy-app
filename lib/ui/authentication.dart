@@ -5,7 +5,7 @@ import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:flutter/material.dart';
 import 'package:hospicare_app/ui/register.dart';
 import 'package:hospicare_app/ui/forgotPassword.dart';
-import 'home_view.dart';
+import 'NavBarRoutes.dart';
 
 class Authentication extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables

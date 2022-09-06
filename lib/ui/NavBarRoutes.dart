@@ -9,7 +9,6 @@ import 'package:flutter/src/painting/box_shadow.dart';
 import 'package:hospicare_app/ui/homepage.dart';
 import 'package:hospicare_app/ui/profile.dart';
 import 'logs.dart';
-import 'themes/bottom_navbar.dart';
 import 'themes/custom_nv_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

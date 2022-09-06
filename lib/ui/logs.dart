@@ -14,7 +14,7 @@ class logs extends StatefulWidget {
 class _logsState extends State<logs> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Center(
       child: Text("logs here"),
     );
   }

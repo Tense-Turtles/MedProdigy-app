@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hospicare_app/ui/home_view.dart';
+import 'package:hospicare_app/ui/NavBarRoutes.dart';
 
 class Started extends StatelessWidget {
   const Started({Key? key}) : super(key: key);
