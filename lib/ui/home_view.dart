@@ -6,7 +6,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hospicare_app/serial_bluetooth/MainPage.dart';
 import 'package:flutter/src/painting/box_shadow.dart';
+import 'themes/bottom_navbar.dart';
 import 'themes/custom_nv_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeView extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -26,6 +28,8 @@ class _HomeViewState extends State<HomeView> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      bottomNavigationBar: bottomNavbar(),
       backgroundColor: Colors.white,
       body: Column(
         children: [
@@ -121,7 +125,7 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(10),
                           // image: DecorationImage(
                           //     fit: BoxFit.fill,
-                          //     image: AssetImage('assets/images/logo.jpeg'))
+                          //     image: AssetImage('https://www.onlinebiologynotes.com/wp-content/uploads/2018/08/ECG-678x300.jpg'))
                         ),
                         child: Text(
                           "   ECG Display",
@@ -190,8 +194,8 @@ class _HomeViewState extends State<HomeView> {
                     children: [
 //Blood Pressure
                       Container(
-                        margin: const EdgeInsets.only(bottom: 5, top: 25),
-                        height: 150,
+                        margin: const EdgeInsets.only(bottom: 5, top: 0),
+                        height: 160,
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 20),
                         child: Container(
@@ -213,32 +217,53 @@ class _HomeViewState extends State<HomeView> {
                             bottom: 50,
                           ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Blood Presure",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold),
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "Blood Pressure",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "100",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 40,
+                                        height: 0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Positioned(
+                                      left: -5,
+                                      child: Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Icon(
+                                            Icons.bloodtype,
+                                            size: 15,
+                                            color: Colors.white,
+                                          ))),
+                                  Positioned(
+                                    left: -2,
+                                    child: Text(
+                                      "mmhg",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                          height: 4,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 2,
+                                  ),
+                                ],
                               ),
-                              const SizedBox(
-                                height: 2,
-                              ),
-                              // Align(
-                              //     alignment: Alignment.topRight,
-                              //     child: Icon(
-                              //       Icons.battery_full_sharp,
-                              //       size: 30,
-                              //       color: Colors.grey,
-                              //     )),
-                              // Text(
-                              //   "General range 90/60mmHg and 120/80mmHg",
-                              //   style: TextStyle(
-                              //       color: Colors.white,
-                              //       fontSize: 10,
-                              //       fontWeight: FontWeight.bold),
-                              // ),
                             ],
                           ),
                         ),
@@ -246,7 +271,7 @@ class _HomeViewState extends State<HomeView> {
 //Blood glucose
                       Container(
                         margin: const EdgeInsets.only(bottom: 5, top: 0),
-                        height: 150,
+                        height: 160,
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 20),
                         child: Container(
@@ -268,29 +293,49 @@ class _HomeViewState extends State<HomeView> {
                             top: 30,
                             bottom: 50,
                           ),
-                          child: Row(
+                          child: Column(
                             children: [
-                              Column(
+                              Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
                                     "Blood glucose",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 30,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "90",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 50,
+                                        height: 0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Positioned(
+                                      left: -5,
+                                      child: Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Icon(
+                                            FontAwesomeIcons.bowlFood,
+                                            size: 15,
+                                            color: Colors.white,
+                                          ))),
+                                  Text(
+                                    "mg/dl",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        height: 4,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   const SizedBox(
                                     height: 2,
                                   ),
-
-                                  // Text(
-                                  //   "these are your blood glucose readings",
-                                  //   style: TextStyle(
-                                  //       color: Colors.white,
-                                  //       fontSize: 13,
-                                  //       fontWeight: FontWeight.bold),
-                                  // ),
                                 ],
                               ),
                             ],
@@ -300,7 +345,7 @@ class _HomeViewState extends State<HomeView> {
 //Temperature
                       Container(
                         margin: const EdgeInsets.only(bottom: 5, top: 0),
-                        height: 150,
+                        height: 160,
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 20),
                         child: Container(
@@ -323,41 +368,66 @@ class _HomeViewState extends State<HomeView> {
                             bottom: 50,
                           ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Temperature",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold),
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "Temparature",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "90",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 50,
+                                        height: 0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Positioned(
+                                      left: -5,
+                                      child: Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Icon(
+                                            FontAwesomeIcons.temperatureHalf,
+                                            size: 15,
+                                            color: Colors.white,
+                                          ))),
+                                  Text(
+                                    "º/c",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        height: 4,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(
+                                    height: 2,
+                                  ),
+                                ],
                               ),
-                              const SizedBox(
-                                height: 2,
-                              ),
-                              // Text(
-                              //   "these are your Temperature readings",
-                              //   style: TextStyle(
-                              //       color: Colors.white,
-                              //       fontSize: 13,
-                              //       fontWeight: FontWeight.bold),
-                              // ),
                             ],
                           ),
                         ),
                       ),
 //Spo2
                       Container(
-                        margin: const EdgeInsets.only(bottom: 10, top: 0),
-                        height: 150,
+                        margin: const EdgeInsets.only(bottom: 5, top: 0),
+                        height: 160,
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 20),
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.blue,
                               borderRadius: const BorderRadius.only(
-                                  // bottomRight: Radius.circular(60),
-                                  topRight: Radius.circular(60)),
+                                topRight: Radius.circular(60),
+                              ),
                               boxShadow: [
                                 BoxShadow(
                                     color: Colors.black.withOpacity(0.3),
@@ -371,25 +441,50 @@ class _HomeViewState extends State<HomeView> {
                             bottom: 50,
                           ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "SpO\u2082",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold),
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    " SpO\u2082",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(
+                                    width: 100,
+                                  ),
+                                  Text(
+                                    "70",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 50,
+                                        height: 0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Positioned(
+                                      left: -5,
+                                      child: Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Icon(
+                                            FontAwesomeIcons.heartCircleCheck,
+                                            size: 15,
+                                            color: Colors.white,
+                                          ))),
+                                  Text(
+                                    "%",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        height: 4,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(
+                                    height: 2,
+                                  ),
+                                ],
                               ),
-                              const SizedBox(
-                                height: 2,
-                              ),
-                              // Text(
-                              //   "these are your SpO\u2082 readings",
-                              //   style: TextStyle(
-                              //       color: Colors.white,
-                              //       fontSize: 13,
-                              //       fontWeight: FontWeight.bold),
-                              // ),
                             ],
                           ),
                         ),
@@ -586,3 +681,4 @@ class _HomeViewState extends State<HomeView> {
     //   // ],
     // );
     // // );
+
