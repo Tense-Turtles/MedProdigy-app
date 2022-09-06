@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, unused_import, duplicate_ignore, prefer_const_constructors, sized_box_for_whitespace,prefer_const_literals_to_create_immutables, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables, unused_local_variable, unnecessary_new, implementation_imports, unnecessary_import
+// ignore_for_file: library_private_types_in_public_api, unused_import, duplicate_ignore, prefer_const_constructors, sized_box_for_whitespace,prefer_const_literals_to_create_immutables, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables, unused_local_variable, unnecessary_new, implementation_imports, unnecessary_import, avoid_unnecessary_containers
 
 // ignore: unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -30,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
       body: Column(
         children: [
           Container(
-            height: 230,
+            height: 160,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(50),
@@ -39,10 +39,10 @@ class _HomeViewState extends State<HomeView> {
             child: Stack(
               children: [
                 Positioned(
-                    top: 80,
+                    top: 40,
                     left: 0,
                     child: Container(
-                        height: 100,
+                        height: 80,
                         width: 300,
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -52,7 +52,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ))),
                 Positioned(
-                  top: 110,
+                  top: 55,
                   left: 20,
                   child: TextButton(
                     style: TextButton.styleFrom(
@@ -70,7 +70,7 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           SizedBox(
-            height: height * 0.05,
+            height: height * 0.02,
           ),
           Container(
             height: 230,
@@ -118,10 +118,16 @@ class _HomeViewState extends State<HomeView> {
                         height: 200,
                         width: 150,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage('assets/images/logo.jpeg'))),
+                          borderRadius: BorderRadius.circular(10),
+                          // image: DecorationImage(
+                          //     fit: BoxFit.fill,
+                          //     image: AssetImage('assets/images/logo.jpeg'))
+                        ),
+                        child: Text(
+                          "   ECG Display",
+                          style:
+                              TextStyle(height: 5, fontWeight: FontWeight.bold),
+                        ),
                       )),
                 ),
                 Positioned(
@@ -132,28 +138,41 @@ class _HomeViewState extends State<HomeView> {
                       width: 170,
                       child: Column(
                         children: [
-                          Positioned(
-                            top: 110,
-                            left: 20,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                textStyle: const TextStyle(fontSize: 20),
-                              ),
+                          ElevatedButton.icon(
                               onPressed: () async {
                                 Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => MainPage(),
-                                  ),
-                                );
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MainPage()));
                               },
-                              child: const Text(
-                                'Click below to enable bluetooth',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
+                              icon: Icon(Icons.bluetooth),
+                              label: Text("Enable Bluetooth")),
+
+// added battery percentage
+                          Column(children: [
+                            Text(
+                              "Device Battery Percentage",
+                              style: TextStyle(
+                                  height: 3, fontWeight: FontWeight.bold),
                             ),
-                          ),
+                            Row(
+                              children: [
+                                Text(
+                                  "  50%",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 43),
+                                ),
+                                Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Icon(
+                                      Icons.battery_full_sharp,
+                                      size: 50,
+                                      color: Colors.grey,
+                                    )),
+                              ],
+                            )
+                          ]),
                         ],
                       ),
                     )),
@@ -171,15 +190,15 @@ class _HomeViewState extends State<HomeView> {
                     children: [
 //Blood Pressure
                       Container(
-                        margin: const EdgeInsets.only(bottom: 10, top: 25),
-                        height: 200,
+                        margin: const EdgeInsets.only(bottom: 5, top: 25),
+                        height: 150,
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 20),
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.blue,
                               borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(80),
+                                bottomLeft: Radius.circular(60),
                               ),
                               boxShadow: [
                                 BoxShadow(
@@ -190,7 +209,7 @@ class _HomeViewState extends State<HomeView> {
                               ]),
                           padding: const EdgeInsets.only(
                             left: 32,
-                            top: 50,
+                            top: 30,
                             bottom: 50,
                           ),
                           child: Column(
@@ -200,35 +219,42 @@ class _HomeViewState extends State<HomeView> {
                                 "Blood Presure",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 25,
+                                    fontSize: 30,
                                     fontWeight: FontWeight.bold),
                               ),
                               const SizedBox(
                                 height: 2,
                               ),
-                              Text(
-                                "these are your blood pressure readings",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                              // Align(
+                              //     alignment: Alignment.topRight,
+                              //     child: Icon(
+                              //       Icons.battery_full_sharp,
+                              //       size: 30,
+                              //       color: Colors.grey,
+                              //     )),
+                              // Text(
+                              //   "General range 90/60mmHg and 120/80mmHg",
+                              //   style: TextStyle(
+                              //       color: Colors.white,
+                              //       fontSize: 10,
+                              //       fontWeight: FontWeight.bold),
+                              // ),
                             ],
                           ),
                         ),
                       ),
 //Blood glucose
                       Container(
-                        margin: const EdgeInsets.only(bottom: 10, top: 25),
-                        height: 200,
+                        margin: const EdgeInsets.only(bottom: 5, top: 0),
+                        height: 150,
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 20),
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.blue,
                               borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(75),
-                                bottomRight: Radius.circular(75),
+                                topRight: Radius.circular(60),
+                                bottomRight: Radius.circular(60),
                               ),
                               boxShadow: [
                                 BoxShadow(
@@ -239,28 +265,33 @@ class _HomeViewState extends State<HomeView> {
                               ]),
                           padding: const EdgeInsets.only(
                             left: 32,
-                            top: 50,
+                            top: 30,
                             bottom: 50,
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Blood glucose",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(
-                                height: 2,
-                              ),
-                              Text(
-                                "these are your blood glucose readings",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold),
+                          child: Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "Blood glucose",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(
+                                    height: 2,
+                                  ),
+
+                                  // Text(
+                                  //   "these are your blood glucose readings",
+                                  //   style: TextStyle(
+                                  //       color: Colors.white,
+                                  //       fontSize: 13,
+                                  //       fontWeight: FontWeight.bold),
+                                  // ),
+                                ],
                               ),
                             ],
                           ),
@@ -268,16 +299,16 @@ class _HomeViewState extends State<HomeView> {
                       ),
 //Temperature
                       Container(
-                        margin: const EdgeInsets.only(bottom: 10, top: 25),
-                        height: 200,
+                        margin: const EdgeInsets.only(bottom: 5, top: 0),
+                        height: 150,
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 20),
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.blue,
                               borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(75),
-                                bottomLeft: Radius.circular(75),
+                                topLeft: Radius.circular(60),
+                                bottomLeft: Radius.circular(60),
                               ),
                               boxShadow: [
                                 BoxShadow(
@@ -288,7 +319,7 @@ class _HomeViewState extends State<HomeView> {
                               ]),
                           padding: const EdgeInsets.only(
                             left: 32,
-                            top: 50,
+                            top: 30,
                             bottom: 50,
                           ),
                           child: Column(
@@ -298,35 +329,35 @@ class _HomeViewState extends State<HomeView> {
                                 "Temperature",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 25,
+                                    fontSize: 30,
                                     fontWeight: FontWeight.bold),
                               ),
                               const SizedBox(
                                 height: 2,
                               ),
-                              Text(
-                                "these are your Temperature readings",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                              // Text(
+                              //   "these are your Temperature readings",
+                              //   style: TextStyle(
+                              //       color: Colors.white,
+                              //       fontSize: 13,
+                              //       fontWeight: FontWeight.bold),
+                              // ),
                             ],
                           ),
                         ),
                       ),
 //Spo2
                       Container(
-                        margin: const EdgeInsets.only(bottom: 10, top: 25),
-                        height: 200,
+                        margin: const EdgeInsets.only(bottom: 10, top: 0),
+                        height: 150,
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 20),
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.blue,
                               borderRadius: const BorderRadius.only(
-                                  bottomRight: Radius.circular(75),
-                                  topRight: Radius.circular(75)),
+                                  // bottomRight: Radius.circular(60),
+                                  topRight: Radius.circular(60)),
                               boxShadow: [
                                 BoxShadow(
                                     color: Colors.black.withOpacity(0.3),
@@ -336,7 +367,7 @@ class _HomeViewState extends State<HomeView> {
                               ]),
                           padding: const EdgeInsets.only(
                             left: 32,
-                            top: 50,
+                            top: 30,
                             bottom: 50,
                           ),
                           child: Column(
@@ -346,67 +377,19 @@ class _HomeViewState extends State<HomeView> {
                                 "SpO\u2082",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 25,
+                                    fontSize: 30,
                                     fontWeight: FontWeight.bold),
                               ),
                               const SizedBox(
                                 height: 2,
                               ),
-                              Text(
-                                "these are your SpO\u2082 readings",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-//Battery percentage
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 10, top: 25),
-                        height: 200,
-                        padding: const EdgeInsets.only(
-                            left: 20, right: 20, bottom: 20),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(75),
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.black.withOpacity(0.3),
-                                    offset: Offset(-10, 10),
-                                    blurRadius: 20,
-                                    spreadRadius: 4)
-                              ]),
-                          padding: const EdgeInsets.only(
-                            left: 32,
-                            top: 50,
-                            bottom: 50,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Battery Percentage",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(
-                                height: 2,
-                              ),
-                              Text(
-                                "these are your Battery Percentage readings",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                              // Text(
+                              //   "these are your SpO\u2082 readings",
+                              //   style: TextStyle(
+                              //       color: Colors.white,
+                              //       fontSize: 13,
+                              //       fontWeight: FontWeight.bold),
+                              // ),
                             ],
                           ),
                         ),
