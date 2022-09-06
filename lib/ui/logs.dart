@@ -4,18 +4,51 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class logs extends StatefulWidget {
+class logs extends StatelessWidget {
   const logs({super.key});
 
   @override
-  State<logs> createState() => _logsState();
-}
-
-class _logsState extends State<logs> {
-  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("logs here"),
+    return ListView(
+      padding: const EdgeInsets.all(8),
+      children: const <Widget>[
+        Card(
+            child: ListTile(
+                title: Text("BP BG TEMP SpO\u2082"),
+                subtitle: Text("90 90 90 90"),
+                trailing: Text(
+                  "2022-01-01T00:00:00",
+                  style: TextStyle(fontSize: 10),
+                  textAlign: TextAlign.end,
+                ))),
+        Card(
+            child: ListTile(
+                title: Text("BP BG TEMP SpO\u2082"),
+                subtitle: Text("90 90 90 90"),
+                trailing: Text(
+                  "2022-01-01T00:00:00",
+                  style: TextStyle(fontSize: 10),
+                  textAlign: TextAlign.end,
+                ))),
+        Card(
+            child: ListTile(
+                title: Text("BP BG TEMP SpO\u2082"),
+                subtitle: Text("90 90 90 90"),
+                trailing: Text(
+                  "2022-01-01T00:00:00",
+                  style: TextStyle(fontSize: 10),
+                  textAlign: TextAlign.end,
+                ))),
+        Card(
+            child: ListTile(
+                title: Text("BP BG TEMP SpO\u2082"),
+                subtitle: Text("90 90 90 90"),
+                trailing: Text(
+                  "2022-01-01T00:00:00",
+                  style: TextStyle(fontSize: 10),
+                  textAlign: TextAlign.end,
+                ))),
+      ],
     );
   }
 }
