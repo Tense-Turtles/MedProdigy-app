@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, unnecessary_const, sized_box_for_whitespace, use_build_context_synchronously, prefer_const_constructors
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hospicare_app/firebase_auth/flutterfire.dart';
 import 'package:flutter/material.dart';
 import 'package:hospicare_app/ui/register.dart';
@@ -20,6 +21,42 @@ class _AuthenticationState extends State<Authentication> {
   TextEditingController emailField = TextEditingController();
   // ignore: prefer_final_fields
   TextEditingController passwordField = TextEditingController();
+
+  bool _isLoading = false;
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   _emailController.dispose();
+  //   _passwordController.dispose();
+  // }
+
+  // void loginUser() async {
+  //   setState(() {
+  //     _isLoading = true;
+  //   });
+  //   String res = await AuthMethods().loginUser(
+  //       email: _emailController.text, password: _passwordController.text);
+  //   if (res == 'success') {
+  //     Navigator.of(context).pushAndRemoveUntil(
+  //         MaterialPageRoute(
+  //           builder: (context) => const ResponsiveLayout(
+  //             mobileScreenLayout: MobileScreenLayout(),
+  //             webScreenLayout: WebScreenLayout(),
+  //           ),
+  //         ),
+  //         (route) => false);
+
+  //     setState(() {
+  //       _isLoading = false;
+  //     });
+  //   } else {
+  //     setState(() {
+  //       _isLoading = false;
+  //     });
+  //   //  showSnackBar(context, res);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

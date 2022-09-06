@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../home_view.dart';
+import '../logs.dart';
+import '../profile.dart';
+
 class bottomNavbar extends StatefulWidget {
   const bottomNavbar({super.key});
 
@@ -13,6 +17,7 @@ class bottomNavbar extends StatefulWidget {
 
 class _bottomNavbarState extends State<bottomNavbar> {
   int index = 0;
+  List<Widget> myList = [HomeView(), logs(), profileview()];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,10 @@ class _bottomNavbarState extends State<bottomNavbar> {
         selectedFontSize: 15,
         unselectedFontSize: 10,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.list), label: "Logs"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ]);
