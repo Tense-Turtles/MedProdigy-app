@@ -77,6 +77,7 @@ class CardWidget extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(4.0),
             child: Card(
+              elevation: 50,
               color: data[index]["color"],
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),

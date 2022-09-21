@@ -15,7 +15,10 @@ class logs extends StatelessWidget {
       children: const <Widget>[
         Card(
             child: ListTile(
-                title: Text("BP BG TEMP SpO\u2082"),
+                title: Text(
+                  "BP BG TEMP SpO\u2082",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 subtitle: Text("90 90 90 90"),
                 trailing: Text(
                   "2022-01-01T00:00:00",
@@ -24,7 +27,8 @@ class logs extends StatelessWidget {
                 ))),
         Card(
             child: ListTile(
-                title: Text("BP BG TEMP SpO\u2082"),
+                title: Text("BP BG TEMP SpO\u2082",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 subtitle: Text("90 90 90 90"),
                 trailing: Text(
                   "2022-01-01T00:00:00",
@@ -33,7 +37,8 @@ class logs extends StatelessWidget {
                 ))),
         Card(
             child: ListTile(
-                title: Text("BP BG TEMP SpO\u2082"),
+                title: Text("BP BG TEMP SpO\u2082",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 subtitle: Text("90 90 90 90"),
                 trailing: Text(
                   "2022-01-01T00:00:00",
@@ -42,7 +47,8 @@ class logs extends StatelessWidget {
                 ))),
         Card(
             child: ListTile(
-                title: Text("BP BG TEMP SpO\u2082"),
+                title: Text("BP BG TEMP SpO\u2082",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 subtitle: Text("90 90 90 90"),
                 trailing: Text(
                   "2022-01-01T00:00:00",

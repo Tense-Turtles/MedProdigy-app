@@ -68,7 +68,11 @@ class _Home_ScreenState extends State<Home_Screen>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(padding: const EdgeInsets.all(5)),
-                        Text("ECG"),
+                        Text(
+                          "ECG",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
                         // style: TextStyle(
                         //     color: colorwhite,
                         //     fontSize: 16,
