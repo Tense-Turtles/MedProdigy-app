@@ -47,19 +47,71 @@ class _Home_ScreenState extends State<Home_Screen>
       //     ),
       //   ),
       // ),
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.grey[300]),
-          ),
-          Expanded(
-            child: TabBarView(controller: _tabController, children: [
-              CardWidget(),
-            ]),
-          )
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.grey[300]),
+            ),
+            Card(
+              color: Colors.amberAccent,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: Column(
+                  children: [
+                    SizedBox(height: 15),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(padding: const EdgeInsets.all(5)),
+                        Text("ECG"),
+                        // style: TextStyle(
+                        //     color: colorwhite,
+                        //     fontSize: 16,
+                        //     fontWeight: FontWeight.bold),
+                        // ),
+                        Container(
+                          padding: EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(20),
+                                  topLeft: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20),
+                                  bottomRight: Radius.circular(20)),
+                              color: Color.fromARGB(95, 133, 103, 103)),
+                          child: Icon(
+                            FontAwesomeIcons.heartPulse,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        )
+                      ],
+                    ),
+                    Container(
+                        alignment: Alignment.topLeft,
+                        padding: EdgeInsets.only(left: 10, bottom: 20),
+                        child: Text(
+                          '144 bpm',
+                          style: TextStyle(
+                              fontSize: 27,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        )),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: TabBarView(controller: _tabController, children: [
+                CardWidget(),
+              ]),
+            )
+          ],
+        ),
       ),
 
       //   body: SafeArea(

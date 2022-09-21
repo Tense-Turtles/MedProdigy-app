@@ -59,15 +59,6 @@ class CardWidget extends StatelessWidget {
       ),
       "Icon": FontAwesomeIcons.temperatureHalf,
     },
-    {
-      "color": Color(0xff7a54ff),
-      "Text": Text(
-        "ECG",
-        style: TextStyle(
-            color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-      ),
-      "Icon": FontAwesomeIcons.heartPulse
-    },
   ];
 
   final colorwhite = Colors.white;
