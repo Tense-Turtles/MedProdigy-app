@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MedProdigy',
+      theme: ThemeData(primaryColor: Colors.white),
       // ignore: prefer_const_constructors
       home: Started(),
     );

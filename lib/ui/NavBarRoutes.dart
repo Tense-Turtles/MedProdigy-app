@@ -13,7 +13,6 @@ import 'themes/custom_nv_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeView extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
   HomeView({Key? key}) : super(key: key);
 
   @override
@@ -22,7 +21,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int currentIndex = 0;
-  List<Widget> myList = [homepage(), logs(), settingsview()];
+  List<Widget> myList = [Home_Screen(), logs(), settingsview()];
 
   void onTabTapped(int index) {
     setState(() {
@@ -42,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
           currentIndex: currentIndex,
           onTap: onTabTapped,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.blue,
+          selectedItemColor: Colors.black,
           iconSize: 25,
           selectedFontSize: 15,
           unselectedFontSize: 10,
