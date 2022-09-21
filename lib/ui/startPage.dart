@@ -14,10 +14,10 @@ class Started extends StatelessWidget {
             Container(
               height: 500,
               decoration: BoxDecoration(color: Colors.white),
-              child: Image.asset(
-                "https://raw.githubusercontent.com/legenie1/medicalapp_ui/main/assets/images/start.jpg",
-                // height: 50,
-              ),
+              // child: Image.asset(
+              //   "https://raw.githubusercontent.com/legenie1/medicalapp_ui/main/assets/images/start.jpg",
+              //   // height: 50,
+              // ),
             ),
             SizedBox(
               height: 10,
