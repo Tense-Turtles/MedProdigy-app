@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hospicare_app/serial_bluetooth/ChatPage.dart';
 
 class CardWidget extends StatelessWidget {
   List data = [
@@ -118,7 +119,7 @@ class CardWidget extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         padding: EdgeInsets.only(left: 10, bottom: 20),
                         child: Text(
-                          '144 bpm',
+                          '123',
                           style: TextStyle(
                               fontSize: 27,
                               color: colorwhite,

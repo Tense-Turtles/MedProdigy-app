@@ -14,6 +14,10 @@ class ChatPage extends StatefulWidget {
   _ChatPage createState() => new _ChatPage();
 }
 
+class thedata {
+  String thedata1 = '';
+}
+
 class _Message {
   int whom;
   String text;
@@ -27,6 +31,7 @@ class _ChatPage extends State<ChatPage> {
 
   List<_Message> messages = List<_Message>.empty(growable: true);
   String _messageBuffer = '';
+  thedata themsg = thedata();
 
   final TextEditingController textEditingController =
       new TextEditingController();
@@ -36,7 +41,7 @@ class _ChatPage extends State<ChatPage> {
   bool get isConnected => (connection?.isConnected ?? false);
 
   bool isDisconnecting = false;
-
+  String theGreatKhali = '';
   @override
   void initState() {
     super.initState();
@@ -91,7 +96,7 @@ class _ChatPage extends State<ChatPage> {
           Container(
             child: Text(
                 (text) {
-                  return text == '/shrug' ? '¯\\_(ツ)_/¯' : text;
+                  return text == '/shrug' ? theGreatKhali : text;
                 }(_message.text.trim()),
                 style: TextStyle(color: Colors.white)),
             padding: EdgeInsets.all(12.0),
@@ -115,7 +120,7 @@ class _ChatPage extends State<ChatPage> {
           title: (isConnecting
               ? Text('Connecting chat to ' + serverName + '...')
               : isConnected
-                  ? Text('Live chat with ' + serverName)
+                  ? Text('Live chat with ' + theGreatKhali)
                   : Text('Chat log with ' + serverName))),
       body: SafeArea(
         child: Column(
@@ -125,6 +130,13 @@ class _ChatPage extends State<ChatPage> {
                   padding: const EdgeInsets.all(12.0),
                   controller: listScrollController,
                   children: list),
+            ),
+            Card(
+              elevation: 50,
+              color: Color.fromARGB(31, 170, 167, 167),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: Text('the output:$_messageBuffer'),
             ),
             Row(
               children: <Widget>[
@@ -154,6 +166,7 @@ class _ChatPage extends State<ChatPage> {
                           ? () => _sendMessage(textEditingController.text)
                           : null),
                 ),
+                Container()
               ],
             )
           ],
@@ -171,6 +184,7 @@ class _ChatPage extends State<ChatPage> {
       }
     });
     Uint8List buffer = Uint8List(data.length - backspacesCounter);
+    print(buffer);
     int bufferIndex = buffer.length;
 
     // Apply backspace control character
@@ -208,6 +222,9 @@ class _ChatPage extends State<ChatPage> {
           ? _messageBuffer.substring(
               0, _messageBuffer.length - backspacesCounter)
           : _messageBuffer + dataString);
+      print(_messageBuffer);
+      themsg = _messageBuffer as thedata;
+      theGreatKhali = _messageBuffer;
     }
   }
 
@@ -223,7 +240,7 @@ class _ChatPage extends State<ChatPage> {
         setState(() {
           messages.add(_Message(clientID, text));
         });
-
+        print(messages);
         Future.delayed(Duration(milliseconds: 333)).then((_) {
           listScrollController.animateTo(
               listScrollController.position.maxScrollExtent,

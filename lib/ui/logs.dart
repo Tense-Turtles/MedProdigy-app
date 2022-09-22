@@ -5,7 +5,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class logs extends StatelessWidget {
-  const logs({super.key});
+  const logs({key});
 
   @override
   Widget build(BuildContext context) {

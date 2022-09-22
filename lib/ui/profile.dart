@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hospicare_app/ui/homepage.dart';
 
 class settingsview extends StatefulWidget {
-  const settingsview({super.key});
+  const settingsview({key});
 
   @override
   State<settingsview> createState() => _settingsview();
