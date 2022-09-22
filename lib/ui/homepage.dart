@@ -50,6 +50,13 @@ class _Home_ScreenState extends State<Home_Screen>
       body: SafeArea(
         child: Column(
           children: [
+            ElevatedButton.icon(
+                onPressed: () async {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MainPage()));
+                },
+                icon: Icon(Icons.bluetooth),
+                label: Text("Enable Bluetooth")),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -117,6 +124,9 @@ class _Home_ScreenState extends State<Home_Screen>
           ],
         ),
       ),
+    );
+  }
+}
 
       //   body: SafeArea(
       //       child: Container(
@@ -164,9 +174,7 @@ class _Home_ScreenState extends State<Home_Screen>
       //         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
       //             crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10)),
       //   )),
-    );
-  }
-}
+  
 
 // body: Center(
 //         child: GridView.extent(
