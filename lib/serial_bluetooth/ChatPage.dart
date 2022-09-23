@@ -22,6 +22,7 @@ class _Message {
 }
 
 class Chatpage extends State<ChatPage> {
+  final ValueNotifier<int> _counter = ValueNotifier<int>(0);
   static const clientID = 0;
   BluetoothConnection? connection;
   static String messageBuffer = "";
@@ -38,7 +39,7 @@ class Chatpage extends State<ChatPage> {
   bool get isConnected => (connection?.isConnected ?? false);
 
   bool isDisconnecting = false;
-  String theGreatKhali = '';
+  static String theGreatKhali = '';
   @override
   void initState() {
     super.initState();
@@ -73,13 +74,19 @@ class Chatpage extends State<ChatPage> {
     });
   }
 
+  void updatedata(BuildContext context) {
+    setState(() {
+      theGreatKhali = messageBuffer;
+    });
+  }
+
   @override
   void dispose() {
     // Avoid memory leak (`setState` after dispose) and disconnect
     if (isConnected) {
-      isDisconnecting = true;
-      connection?.dispose();
-      connection = null;
+      isDisconnecting = false;
+      //connection?.dispose();
+      //connection = null;
     }
 
     super.dispose();
