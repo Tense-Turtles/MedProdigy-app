@@ -11,11 +11,7 @@ class ChatPage extends StatefulWidget {
   const ChatPage({required this.server});
 
   @override
-  _ChatPage createState() => new _ChatPage();
-}
-
-class thedata {
-  String thedata1 = '';
+  Chatpage createState() => Chatpage();
 }
 
 class _Message {
@@ -25,13 +21,14 @@ class _Message {
   _Message(this.whom, this.text);
 }
 
-class _ChatPage extends State<ChatPage> {
-  static final clientID = 0;
+class Chatpage extends State<ChatPage> {
+  static const clientID = 0;
   BluetoothConnection? connection;
+  static String messageBuffer = "";
 
   List<_Message> messages = List<_Message>.empty(growable: true);
-  String _messageBuffer = '';
-  thedata themsg = thedata();
+
+  //thedata themsg = thedata();
 
   final TextEditingController textEditingController =
       new TextEditingController();
@@ -51,7 +48,7 @@ class _ChatPage extends State<ChatPage> {
       connection = _connection;
       setState(() {
         isConnecting = false;
-        isDisconnecting = false;
+        // isDisconnecting = false;
       });
 
       connection!.input!.listen(_onDataReceived).onDone(() {
@@ -120,7 +117,7 @@ class _ChatPage extends State<ChatPage> {
           title: (isConnecting
               ? Text('Connecting chat to ' + serverName + '...')
               : isConnected
-                  ? Text('Live chat with ' + theGreatKhali)
+                  ? Text('Live chat with ' + serverName)
                   : Text('Chat log with ' + serverName))),
       body: SafeArea(
         child: Column(
@@ -136,7 +133,7 @@ class _ChatPage extends State<ChatPage> {
               color: Color.fromARGB(31, 170, 167, 167),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              child: Text('the output:$_messageBuffer'),
+              child: Text('the output:$messageBuffer'),
             ),
             Row(
               children: <Widget>[
@@ -210,21 +207,20 @@ class _ChatPage extends State<ChatPage> {
           _Message(
             1,
             backspacesCounter > 0
-                ? _messageBuffer.substring(
-                    0, _messageBuffer.length - backspacesCounter)
-                : _messageBuffer + dataString.substring(0, index),
+                ? messageBuffer.substring(
+                    0, messageBuffer.length - backspacesCounter)
+                : messageBuffer + dataString.substring(0, index),
           ),
         );
-        _messageBuffer = dataString.substring(index);
+        messageBuffer = dataString.substring(index);
       });
     } else {
-      _messageBuffer = (backspacesCounter > 0
-          ? _messageBuffer.substring(
-              0, _messageBuffer.length - backspacesCounter)
-          : _messageBuffer + dataString);
-      print(_messageBuffer);
-      themsg = _messageBuffer as thedata;
-      theGreatKhali = _messageBuffer;
+      messageBuffer = (backspacesCounter > 0
+          ? messageBuffer.substring(0, messageBuffer.length - backspacesCounter)
+          : messageBuffer + dataString);
+      print(messageBuffer);
+      // themsg = messageBuffer as thedata;
+      theGreatKhali = messageBuffer;
     }
   }
 

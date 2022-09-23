@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hospicare_app/serial_bluetooth/ChatPage.dart';
 
 class CardWidget extends StatelessWidget {
+  String thedata = Chatpage.messageBuffer;
   List data = [
     {
       "color": Color(0xff7a54ff),
@@ -119,7 +120,7 @@ class CardWidget extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         padding: EdgeInsets.only(left: 10, bottom: 20),
                         child: Text(
-                          '123',
+                          thedata,
                           style: TextStyle(
                               fontSize: 27,
                               color: colorwhite,
