@@ -115,7 +115,7 @@ class CardWidget extends StatelessWidget {
                         )
                       ],
                     ),
-                    Listener(),
+                    // Listener(),
                     Container(
                         alignment: Alignment.topLeft,
                         padding: EdgeInsets.only(left: 10, bottom: 20),

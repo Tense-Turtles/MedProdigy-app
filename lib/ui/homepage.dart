@@ -19,7 +19,7 @@ class _Home_ScreenState extends State<Home_Screen>
 
   @override
   void initState() {
-    _tabController = new TabController(length: 3, vsync: this, initialIndex: 0)
+    _tabController = new TabController(length: 1, vsync: this, initialIndex: 0)
       ..addListener(() {});
     super.initState();
   }
@@ -27,6 +27,15 @@ class _Home_ScreenState extends State<Home_Screen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.bluetooth),
+        onPressed: () async {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => MainPage()));
+        },
+      ),
+
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       // appBar: AppBar(
       //   title: Text(
@@ -50,18 +59,12 @@ class _Home_ScreenState extends State<Home_Screen>
       body: SafeArea(
         child: Column(
           children: [
-            ElevatedButton.icon(
-                onPressed: () async {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MainPage()));
-                },
-                icon: Icon(Icons.bluetooth),
-                label: Text("Enable Bluetooth")),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.grey[300]),
             ),
+
             Card(
               color: Colors.amberAccent,
               shape: RoundedRectangleBorder(
@@ -116,11 +119,14 @@ class _Home_ScreenState extends State<Home_Screen>
                 ),
               ),
             ),
+
             Expanded(
               child: TabBarView(controller: _tabController, children: [
                 CardWidget(),
               ]),
-            )
+            ),
+
+            //
           ],
         ),
       ),
@@ -128,53 +134,52 @@ class _Home_ScreenState extends State<Home_Screen>
   }
 }
 
-      //   body: SafeArea(
-      //       child: Container(
-      //     child: GridView(
-      //         children: [
-      //           Container(
-      //             decoration: BoxDecoration(
-      //               borderRadius: BorderRadius.circular(10),
-      //               color: Colors.black,
-      //             ),
-      //             child: Column(
-      //               mainAxisAlignment: MainAxisAlignment.center,
-      //               children: [
-      //                 Text(
-      //                   "Blood Pressure",
-      //                   style: TextStyle(color: Colors.white, fontSize: 20),
-      //                 ),
-      //                 Icon(
-      //                   Icons.bloodtype,
-      //                   size: 30,
-      //                   color: Colors.white,
-      //                 ),
-      //               ],
-      //             ),
-      //           ),
-      //           Container(
-      //             decoration: BoxDecoration(
-      //               borderRadius: BorderRadius.circular(10),
-      //               color: Colors.black,
-      //             ),
-      //           ),
-      //           Container(
-      //             decoration: BoxDecoration(
-      //               borderRadius: BorderRadius.circular(10),
-      //               color: Colors.black,
-      //             ),
-      //           ),
-      //           Container(
-      //             decoration: BoxDecoration(
-      //               borderRadius: BorderRadius.circular(10),
-      //               color: Colors.black,
-      //             ),
-      //           ),
-      //         ],
-      //         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      //             crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10)),
-      //   )),
-  
+//   body: SafeArea(
+//       child: Container(
+//     child: GridView(
+//         children: [
+//           Container(
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(10),
+//               color: Colors.black,
+//             ),
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Text(
+//                   "Blood Pressure",
+//                   style: TextStyle(color: Colors.white, fontSize: 20),
+//                 ),
+//                 Icon(
+//                   Icons.bloodtype,
+//                   size: 30,
+//                   color: Colors.white,
+//                 ),
+//               ],
+//             ),
+//           ),
+//           Container(
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(10),
+//               color: Colors.black,
+//             ),
+//           ),
+//           Container(
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(10),
+//               color: Colors.black,
+//             ),
+//           ),
+//           Container(
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(10),
+//               color: Colors.black,
+//             ),
+//           ),
+//         ],
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10)),
+//   )),
 
 // body: Center(
 //         child: GridView.extent(
@@ -243,157 +248,157 @@ class _Home_ScreenState extends State<Home_Screen>
 //       ),
 
 // Column(
-    // children: [
-    //   Container(
-    //     height: 160,
-    //     decoration: BoxDecoration(
-    //         borderRadius: BorderRadius.only(
-    //           bottomRight: Radius.circular(50),
-    //         ),
-    //         color: Colors.blue),
-    //     child: Stack(
-    //       children: [
-    //         Positioned(
-    //             top: 40,
-    //             left: 0,
-    //             child: Container(
-    //                 height: 80,
-    //                 width: 300,
-    //                 decoration: BoxDecoration(
-    //                   color: Colors.white,
-    //                   borderRadius: BorderRadius.only(
-    //                     bottomRight: Radius.circular(50),
-    //                     topRight: Radius.circular(50),
-    //                   ),
-    //                 ))),
-    //         Positioned(
-    //           top: 55,
-    //           left: 20,
-    //           child: TextButton(
-    //             style: TextButton.styleFrom(
-    //               textStyle: const TextStyle(fontSize: 20),
-    //             ),
-    //             onPressed: () async {},
-    //             child: const Text(
-    //               'Welcome to MedProdegy',
-    //               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-    //             ),
-    //           ),
-    //         )
-    //       ],
-    //     ),
-    //   ),
-    // SizedBox(
-    //   height: height * 0.02,
-    // ),
-    // Container(
-    //   height: 230,
-    //   decoration: BoxDecoration(
-    //       borderRadius: BorderRadius.only(bottomRight: Radius.circular(50)),
-    //       boxShadow: [
-    //         BoxShadow(
-    //             color: Colors.grey.withOpacity(0.3),
-    //             offset: Offset(-10, 10),
-    //             blurRadius: 20,
-    //             spreadRadius: 4)
-    //       ]),
-    //   child: Stack(
-    // children: [
-    // Positioned(
-    //     top: 35,
-    //     left: 20,
-    //     child: Material(
-    //       child: Container(
-    //         height: 180,
-    //         width: width * 0.9,
-    //         decoration: BoxDecoration(
-    //             color: Colors.white,
-    //             borderRadius: BorderRadius.circular(0),
-    //             boxShadow: [
-    //               BoxShadow(
-    //                   color: Colors.grey.withOpacity(0.3),
-    //                   offset: Offset(-10, 10),
-    //                   spreadRadius: 4,
-    //                   blurRadius: 20)
-    //             ]),
-    //       ),
-    //     )),
-    // Positioned(
-    //   top: 0,
-    //   left: 30,
-    //   child: Card(
-    //       elevation: 10.0,
-    //       shadowColor: Colors.grey.withOpacity(0.5),
-    //       shape: RoundedRectangleBorder(
-    //         borderRadius: BorderRadius.circular(15),
-    //       ),
-    //       child: Container(
-    //         height: 200,
-    //         width: 150,
-    //         decoration: BoxDecoration(
-    //           borderRadius: BorderRadius.circular(10),
-    //           // image: DecorationImage(
-    //           //     fit: BoxFit.fill,
-    //           //     image: AssetImage('https://www.onlinebiologynotes.com/wp-content/uploads/2018/08/ECG-678x300.jpg'))
-    //         ),
-    //         child: Text(
-    //           "   ECG Display",
-    //           style:
-    //               TextStyle(height: 5, fontWeight: FontWeight.bold),
-    //         ),
-    //       )),
-    // ),
-    // Positioned(
-    //     top: 45,
-    //     left: 190,
-    //     child: Container(
-    //       height: 150,
-    //       width: 170,
-    //       child: Column(
-    //         children: [
-    //           ElevatedButton.icon(
-    //               onPressed: () async {
-    //                 Navigator.push(
-    //                     context,
-    //                     MaterialPageRoute(
-    //                         builder: (context) => MainPage()));
-    //               },
-    //               icon: Icon(Icons.bluetooth),
-    //               label: Text("Enable Bluetooth")),
+// children: [
+//   Container(
+//     height: 160,
+//     decoration: BoxDecoration(
+//         borderRadius: BorderRadius.only(
+//           bottomRight: Radius.circular(50),
+//         ),
+//         color: Colors.blue),
+//     child: Stack(
+//       children: [
+//         Positioned(
+//             top: 40,
+//             left: 0,
+//             child: Container(
+//                 height: 80,
+//                 width: 300,
+//                 decoration: BoxDecoration(
+//                   color: Colors.white,
+//                   borderRadius: BorderRadius.only(
+//                     bottomRight: Radius.circular(50),
+//                     topRight: Radius.circular(50),
+//                   ),
+//                 ))),
+//         Positioned(
+//           top: 55,
+//           left: 20,
+//           child: TextButton(
+//             style: TextButton.styleFrom(
+//               textStyle: const TextStyle(fontSize: 20),
+//             ),
+//             onPressed: () async {},
+//             child: const Text(
+//               'Welcome to MedProdegy',
+//               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+//             ),
+//           ),
+//         )
+//       ],
+//     ),
+//   ),
+// SizedBox(
+//   height: height * 0.02,
+// ),
+// Container(
+//   height: 230,
+//   decoration: BoxDecoration(
+//       borderRadius: BorderRadius.only(bottomRight: Radius.circular(50)),
+//       boxShadow: [
+//         BoxShadow(
+//             color: Colors.grey.withOpacity(0.3),
+//             offset: Offset(-10, 10),
+//             blurRadius: 20,
+//             spreadRadius: 4)
+//       ]),
+//   child: Stack(
+// children: [
+// Positioned(
+//     top: 35,
+//     left: 20,
+//     child: Material(
+//       child: Container(
+//         height: 180,
+//         width: width * 0.9,
+//         decoration: BoxDecoration(
+//             color: Colors.white,
+//             borderRadius: BorderRadius.circular(0),
+//             boxShadow: [
+//               BoxShadow(
+//                   color: Colors.grey.withOpacity(0.3),
+//                   offset: Offset(-10, 10),
+//                   spreadRadius: 4,
+//                   blurRadius: 20)
+//             ]),
+//       ),
+//     )),
+// Positioned(
+//   top: 0,
+//   left: 30,
+//   child: Card(
+//       elevation: 10.0,
+//       shadowColor: Colors.grey.withOpacity(0.5),
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(15),
+//       ),
+//       child: Container(
+//         height: 200,
+//         width: 150,
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(10),
+//           // image: DecorationImage(
+//           //     fit: BoxFit.fill,
+//           //     image: AssetImage('https://www.onlinebiologynotes.com/wp-content/uploads/2018/08/ECG-678x300.jpg'))
+//         ),
+//         child: Text(
+//           "   ECG Display",
+//           style:
+//               TextStyle(height: 5, fontWeight: FontWeight.bold),
+//         ),
+//       )),
+// ),
+// Positioned(
+//     top: 45,
+//     left: 190,
+//     child: Container(
+//       height: 150,
+//       width: 170,
+//       child: Column(
+//         children: [
+//           ElevatedButton.icon(
+//               onPressed: () async {
+//                 Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                         builder: (context) => MainPage()));
+//               },
+//               icon: Icon(Icons.bluetooth),
+//               label: Text("Enable Bluetooth")),
 
 // added battery percentage
-    //                 Column(children: [
-    //                   Text(
-    //                     "Device Battery Percentage",
-    //                     style: TextStyle(
-    //                         height: 3, fontWeight: FontWeight.bold),
-    //                   ),
-    //                   Row(
-    //                     children: [
-    //                       Text(
-    //                         "  50%",
-    //                         style: TextStyle(
-    //                             fontWeight: FontWeight.bold, fontSize: 43),
-    //                       ),
-    //                       Align(
-    //                           alignment: Alignment.topLeft,
-    //                           child: Icon(
-    //                             Icons.battery_full_sharp,
-    //                             size: 50,
-    //                             color: Colors.grey,
-    //                           )),
-    //                     ],
-    //                   )
-    //                 ]),
-    //               ],
-    //             ),
-    //           )),
-    //       // SizedBox(
-    //       //   height: height * 0.05,
-    //       // ),
-    //     ],
-    //   ),
-    // ),
+//                 Column(children: [
+//                   Text(
+//                     "Device Battery Percentage",
+//                     style: TextStyle(
+//                         height: 3, fontWeight: FontWeight.bold),
+//                   ),
+//                   Row(
+//                     children: [
+//                       Text(
+//                         "  50%",
+//                         style: TextStyle(
+//                             fontWeight: FontWeight.bold, fontSize: 43),
+//                       ),
+//                       Align(
+//                           alignment: Alignment.topLeft,
+//                           child: Icon(
+//                             Icons.battery_full_sharp,
+//                             size: 50,
+//                             color: Colors.grey,
+//                           )),
+//                     ],
+//                   )
+//                 ]),
+//               ],
+//             ),
+//           )),
+//       // SizedBox(
+//       //   height: height * 0.05,
+//       // ),
+//     ],
+//   ),
+// ),
 //         Expanded(
 //             child: MediaQuery.removePadding(
 //                 removeTop: true,
@@ -700,5 +705,5 @@ class _Home_ScreenState extends State<Home_Screen>
 // //                     ),
 //                   ],
 //                 )))
-    //   ],
-    //   // );
+//   ],
+//   // );
